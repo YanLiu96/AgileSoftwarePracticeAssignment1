@@ -1,7 +1,7 @@
 let chai = require("chai");
 let chaiHttp = require("chai-http");
 let server = require("../../bin/www");
-let Books = require("../../models/goods")
+let good = require("../../models/goods")
 let expect = chai.expect;
 chai.use(require("chai-things"));
 chai.use(chaiHttp);
@@ -9,11 +9,11 @@ let _ = require("lodash" );
 
 describe("Goods", function () {
     beforeEach((done) => { //Before each test we empty the database
-        Books.deleteMany({}, (err) => {
+        good.deleteMany({}, (err) => {
             done();
         });
         //add the test case to test
-        Books.create({
+        good.create({
             _id: 10001,
             goodsName: "Iphone X",
             goodsKind: "expensive",
@@ -24,7 +24,7 @@ describe("Goods", function () {
             },
             goodsLocation: "at waterford"
         });
-        Books.create({
+        good.create({
             _id: 10002,
             goodsName: "Mac Pro",
             goodsKind: "expensive",
@@ -35,7 +35,7 @@ describe("Goods", function () {
             },
             goodsLocation: "In the transfer station"
         });
-        Books.create({
+        good.create({
             _id: 10003,
             goodsName: "AJ 1",
             goodsKind: "soft",
@@ -46,7 +46,7 @@ describe("Goods", function () {
             },
             goodsLocation: "In the pass station"
         });
-        Books.create({
+        good.create({
             _id: 10004,
             goodsName: "Superme",
             goodsKind: "clothes",
@@ -57,7 +57,7 @@ describe("Goods", function () {
             },
             goodsLocation: "still not send"
         });
-        Books.create({
+        good.create({
             _id: 10005,
             goodsName: "Car",
             goodsKind: "expensive",
@@ -185,6 +185,31 @@ describe("Goods", function () {
         });
     });
 
-
+    describe("DELETE /goods/:id",()=>{
+        it("should return delete confirmation message ", function(done) {
+            chai.request(server)
+                .delete("/goods/10005")
+                .end(function(err, res) {
+                    expect(res).to.have.status(200);
+                    expect(res.body).to.have.property("message").equal("Good Successfully Deleted!" );
+                    done();
+                });
+        });
+        after(function  (done) {
+            chai.request(server)
+                .get("/goods")
+                .end(function(err, res) {
+                    let result = _.map(res.body, (good) => {
+                        return { _id: good._id};
+                    }  );
+                    expect(res.body.length).to.equal(4);
+                    expect(result).to.include({_id: 10001});
+                    expect(result).to.include({_id: 10002});
+                    expect(result).to.include({_id: 10003});
+                    expect(result).to.include({_id: 10004});
+                    done();
+                });
+        });
+    });
 
 });
