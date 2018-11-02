@@ -171,7 +171,19 @@ describe("Goods", function () {
 
     });
 
-    
+    describe("PUT /goods/:id/changeDeliveryman/:name/:phoneNumber", () => {
+        it("should change the name and phone number of delivery man ", function (done) {
+            chai.request(server)
+                .put("/goods/10001/changeDeliveryman/testName/666666666666")
+                .end(function (err, res) {
+                    expect(res).to.have.status(200);
+                    let good = res.body.data;
+                    expect(good.deliveryman).to.include({deliverymanName:"testName",phoneNumber:"666666666666"});
+                    expect(res.body).to.have.property("message").equal("Delivery man name and phone number change!" );
+                    done();
+                });
+        });
+    });
 
 
 
