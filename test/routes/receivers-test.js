@@ -145,4 +145,16 @@ describe("Receiver", function () {
                 });
         });
     });
+    describe("PUT /receivers/:id/changeAddress/:address", () => {
+        it("should change th receiver address  to testaddress", function (done) {
+            chai.request(server)
+                .put("/receivers/10001/changeAddress/testaddress")
+                .end(function (err, res) {
+                    expect(res).to.have.status(200);
+                    let receiver = res.body.data;
+                    expect(receiver).to.include({receiverAddress: "testaddress"});
+                    done();
+                });
+        });
+    });
 });
