@@ -80,4 +80,30 @@ describe("ShipmentDetails", function () {
         });
 
     });
+
+    describe("GET /shipmentDetails/:id", () => {
+        it("should return shipmentDetails which id is 10001", function (done) {
+            chai.request(server)
+                .get("/shipmentDetails/10001")
+                .end((err, res) => {
+                    expect(res).to.have.status(200);
+                    expect(res.body.length).to.equal(1);
+                    let result = _.map(res.body, (shipmentDetails) => {
+                        return {_id: shipmentDetails._id};
+                    });
+                    expect(result).to.include({_id: 10001});
+                    done();
+                });
+        });
+        it("should return shipmentDetails not found when ID not existence", function (done) {
+            chai.request(server)
+                .get("/shipmentDetails/555")
+                .end((err, res) => {
+                    expect(res).to.have.status(200);
+                    expect(res.body.length).to.equal(undefined);
+                    expect(res.body).to.have.property("message").equal("shipmentDetails NOT Found!" );
+                    done();
+                });
+        });
+    });
 });
