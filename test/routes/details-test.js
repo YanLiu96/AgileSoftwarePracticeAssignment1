@@ -24,4 +24,29 @@ describe("Details", function () {
                 });
         });
     });
+    describe("GET /details/:id", () => {
+        it("should return details which id is 10001", function (done) {
+            chai.request(server)
+                .get("/details/10001")
+                .end((err, res) => {
+                    expect(res).to.have.status(200);
+                    expect(res.body.length).to.equal(1);
+                    let result = _.map(res.body, (details) => {
+                        return {_id: details._id};
+                    });
+                    expect(result).to.include({_id: 10001});
+                    done();
+                });
+        });
+        it("should return message bad search", function (done) {
+            chai.request(server)
+                .get("/details/222222")
+                .end((err, res) => {
+                    expect(res).to.have.status(200);
+                    expect(res.body.length).to.equal(undefined);
+                    expect(res.body).to.have.property("message").equal("Bad search!");
+                    done();
+                });
+        });
+    });
 });
