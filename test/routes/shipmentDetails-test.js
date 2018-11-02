@@ -165,4 +165,31 @@ describe("ShipmentDetails", function () {
                 });
         });
     });
+    describe("DELETE /shipmentDetails/:id",()=>{
+        it("should return delete confirmation message ", function(done) {
+            chai.request(server)
+                .delete("/shipmentDetails/10005")
+                .end(function(err, res) {
+                    expect(res).to.have.status(200);
+                    expect(res.body).to.have.property("message").equal("shipmentDetails Successfully Deleted!" );
+                    done();
+                });
+        });
+
+        after(function  (done) {
+            chai.request(server)
+                .get("/shipmentDetails")
+                .end(function(err, res) {
+                    let result = _.map(res.body, (shipmentDetail) => {
+                        return { _id: shipmentDetail._id};
+                    }  );
+                    expect(res.body.length).to.equal(4);
+                    expect(result).to.include({_id: 10001});
+                    expect(result).to.include({_id: 10002});
+                    expect(result).to.include({_id: 10003});
+                    expect(result).to.include({_id: 10004});
+                    done();
+                });
+        });
+    });
 });
