@@ -91,4 +91,43 @@ describe("Goods", function () {
 
     });
 
+    describe("POST /goods", function () {
+        it("should return confirmation message", function (done) {
+            let good = {
+                _id: "131313",
+                goodsName: "testname",
+                goodsKind: "testKind",
+                freight:111,
+                deliveryman: {
+                    deliverymanName:"liuyan",
+                    phoneNumber:"110",
+                },
+                goodsLocation: "testlocation",
+
+            };
+            chai.request(server)
+                .post("/goods")
+                .send(good)
+                .end(function (err, res) {
+                    expect(res).to.have.status(200);
+                    expect(res.body).to.have.property("message").equal("Good Successfully Added!");
+                    done();
+                });
+        });
+
+        it("should return error message when the goods not add to the database", function (done) {
+            let good = {};
+            chai.request(server)
+                .post("/goods")
+                .send(good)
+                .end(function (err, res) {
+                    expect(res).to.have.status(200);
+                    expect(res.body).to.have.property("message").equal("Good NOT Added!");
+                    done();
+                });
+        });
+    });
+
+    
+
 });

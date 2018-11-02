@@ -31,7 +31,6 @@ router.findOneGood = (req, res) => {
             res.json({ message: "Good NOT Found!", errmsg : err } );
         else
             res.send(JSON.stringify(goods,null,5));
-        // return the donation
     });
 };
 
