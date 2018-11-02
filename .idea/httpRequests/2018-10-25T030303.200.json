@@ -1,0 +1,11 @@
+[
+  {
+    "deliveryman": {
+      "deliverymanName": "testNAME",
+      "phoneNumber": "1111111"
+    },
+    "_id": 10006,
+    "goodsName": "clock",
+    "goodsLocation": "WIT"
+  }
+]

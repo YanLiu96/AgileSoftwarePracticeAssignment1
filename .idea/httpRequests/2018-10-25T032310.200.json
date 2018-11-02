@@ -1,0 +1,31 @@
+[
+  {
+    "_id": 10006,
+    "deliveryman": {
+      "deliverymanName": "D6",
+      "phoneNumber": "1111111"
+    },
+    "goodsName": "clock",
+    "goodsLocation": "WIT",
+    "Sender": [
+      {
+        "_id": 10006,
+        "senderMethod": "UPS",
+        "sendersName": "WAWA",
+        "senderPhoneNumber": "434343",
+        "postcode": "Xadada",
+        "sendDate": "2018-10-25"
+      }
+    ],
+    "Receiver": [
+      {
+        "_id": 10006,
+        "receiverName": "David",
+        "receiverPhoneNumber": "0833863840",
+        "receiverAddress": "Waterford",
+        "receiverCountry": "Ireland",
+        "postcode": "DDD D323"
+      }
+    ]
+  }
+]

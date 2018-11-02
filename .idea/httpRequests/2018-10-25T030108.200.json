@@ -1,0 +1,13 @@
+[
+  {
+    "deliveryman": {
+      "deliverymanName": "d1",
+      "phoneNumber": "15261820009"
+    },
+    "_id": 10001,
+    "goodsName": "Iphone X",
+    "goodsKind": "expensive",
+    "freight": 12.5,
+    "goodsLocation": "at waterford"
+  }
+]

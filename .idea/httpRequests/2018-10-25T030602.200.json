@@ -1,0 +1,62 @@
+[
+  {
+    "_id": 10005,
+    "goodsName": "Car",
+    "goodsKind": "expensive",
+    "freight": 2120,
+    "deliveryman": {
+      "deliverymanName": "d5",
+      "phoneNumber": "777777777"
+    },
+    "goodsLocation": "arriving at aim city",
+    "senders": [
+      {
+        "senderMethod": "UPS",
+        "sendersName": "Yan Liu",
+        "senderPhoneNumber": "15261820009",
+        "senderAddress": "BeiJing",
+        "postcode": "YD9 FSF6",
+        "sendDate": "2018-9-11"
+      }
+    ],
+    "receivers": [
+      {
+        "receiverName": "David",
+        "receiverPhoneNumber": "434234235",
+        "receiverCountry": "Ireland",
+        "receiverAddress": "dsdasda",
+        "postcode": "X91HXT3"
+      }
+    ]
+  },
+  {
+    "_id": 10001,
+    "goodsName": "Iphone X",
+    "goodsKind": "expensive",
+    "freight": 12.5,
+    "deliveryman": {
+      "deliverymanName": "d1",
+      "phoneNumber": "15261820009"
+    },
+    "goodsLocation": "at waterford",
+    "senders": [
+      {
+        "senderMethod": "UPS",
+        "sendersName": "Yan Liu",
+        "senderPhoneNumber": "08338401313",
+        "senderAddress": "ireland",
+        "postcode": "X42 YX36",
+        "sendDate": "2018-3-19"
+      }
+    ],
+    "receivers": [
+      {
+        "receiverName": "ads",
+        "receiverPhoneNumber": "11111111",
+        "receiverCountry": "French",
+        "receiverAddress": "dsdasda",
+        "postcode": "X78 DADA"
+      }
+    ]
+  }
+]

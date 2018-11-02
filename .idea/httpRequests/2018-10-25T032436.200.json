@@ -1,0 +1,16 @@
+[
+  {
+    "_id": 10006,
+    "dimensionsInCM": {
+      "length": 10,
+      "width": 10,
+      "height": 10
+    },
+    "numberOfPackage": 1,
+    "goodsInformation": [
+      {
+        "goodsName": "clock"
+      }
+    ]
+  }
+]

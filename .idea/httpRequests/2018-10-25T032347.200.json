@@ -1,0 +1,59 @@
+[
+  {
+    "_id": 10005,
+    "goodsName": "Car",
+    "goodsKind": "expensive",
+    "freight": 2120,
+    "deliveryman": {
+      "deliverymanName": "d5",
+      "phoneNumber": "777777777"
+    },
+    "goodsLocation": "arriving at aim city",
+    "senders": [
+      {
+        "senderMethod": "UPS",
+        "sendersName": "Yan Liu",
+        "senderPhoneNumber": "15261820009",
+        "senderAddress": "BeiJing",
+        "postcode": "YD9 FSF6",
+        "sendDate": "2018-9-11"
+      }
+    ],
+    "receivers": [
+      {
+        "receiverName": "David",
+        "receiverPhoneNumber": "434234235",
+        "receiverCountry": "Ireland",
+        "receiverAddress": "dsdasda",
+        "postcode": "X91HXT3"
+      }
+    ]
+  },
+  {
+    "_id": 10006,
+    "deliveryman": {
+      "deliverymanName": "D6",
+      "phoneNumber": "1111111"
+    },
+    "goodsName": "clock",
+    "goodsLocation": "WIT",
+    "senders": [
+      {
+        "senderMethod": "UPS",
+        "sendersName": "WAWA",
+        "senderPhoneNumber": "434343",
+        "postcode": "Xadada",
+        "sendDate": "2018-10-25"
+      }
+    ],
+    "receivers": [
+      {
+        "receiverName": "David",
+        "receiverPhoneNumber": "0833863840",
+        "receiverAddress": "Waterford",
+        "receiverCountry": "Ireland",
+        "postcode": "DDD D323"
+      }
+    ]
+  }
+]

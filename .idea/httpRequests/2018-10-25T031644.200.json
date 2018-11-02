@@ -1,0 +1,57 @@
+[
+  {
+    "deliveryman": {
+      "deliverymanName": "d1",
+      "phoneNumber": "15261820009"
+    },
+    "_id": 10001,
+    "goodsName": "Iphone X",
+    "goodsKind": "expensive",
+    "freight": 12.5,
+    "goodsLocation": "at waterford"
+  },
+  {
+    "deliveryman": {
+      "deliverymanName": "d2",
+      "phoneNumber": "18761356166"
+    },
+    "_id": 10002,
+    "goodsName": "Mac Pro",
+    "goodsKind": "expensive",
+    "freight": 28.4,
+    "goodsLocation": "In the transfer station"
+  },
+  {
+    "deliveryman": {
+      "deliverymanName": "d3",
+      "phoneNumber": "689860480"
+    },
+    "_id": 10003,
+    "goodsName": "AJ 1",
+    "goodsKind": "soft",
+    "freight": 12.6,
+    "goodsLocation": "In the pass station"
+  },
+  {
+    "deliveryman": {
+      "deliverymanName": "d4",
+      "phoneNumber": "110119118"
+    },
+    "_id": 10004,
+    "goodsName": "Superme",
+    "goodsKind": "clothes",
+    "freight": 12.8,
+    "goodsLocation": "still not send"
+  },
+  {
+    "deliveryman": {
+      "deliverymanName": "d5",
+      "phoneNumber": "777777777"
+    },
+    "_id": 10005,
+    "goodsName": "Car",
+    "goodsKind": "expensive",
+    "freight": 2120,
+    "goodsLocation": "arriving at aim city"
+  }
+]

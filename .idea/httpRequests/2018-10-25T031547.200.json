@@ -1,0 +1,11 @@
+{
+  "message": "receiver Successfully Added!",
+  "data": {
+    "_id": 10006,
+    "receiverName": "David",
+    "receiverPhoneNumber": "0833863840",
+    "receiverAddress": "Waterford",
+    "receiverCountry": "Ireland",
+    "postcode": "DDD D323"
+  }
+}
