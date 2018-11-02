@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="109015f6-856f-411a-9b45-ee88ea73fc04" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/test/routes/receivers-test.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/routes/receivers-test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/routes/shipmentDetails-test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -124,7 +125,7 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="gitignore" value="1" />
-          <entry key="js" value="35" />
+          <entry key="js" value="36" />
           <entry key="json" value="2" />
           <entry key="www" value="1" />
         </counts>
@@ -132,19 +133,19 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="JSON" value="2" />
-          <entry key="JavaScript" value="27" />
+          <entry key="JavaScript" value="28" />
           <entry key="PLAIN_TEXT" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gitignore" value="1" />
-          <entry key="js" value="801" />
+          <entry key="js" value="852" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JavaScript" value="774" />
+          <entry key="JavaScript" value="825" />
           <entry key="PLAIN_TEXT" value="28" />
         </counts>
       </usages-collector>
@@ -195,15 +196,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/senders.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="585">
-              <caret line="39" column="31" selection-start-line="39" selection-start-column="31" selection-end-line="39" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/goods.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="120">
@@ -230,11 +222,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/routes/receivers-test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="97">
-              <caret line="162" column="41" selection-start-line="162" selection-start-column="41" selection-end-line="162" selection-end-column="41" />
+            <state relative-caret-position="152">
+              <caret line="56" column="7" lean-forward="true" selection-start-line="10" selection-start-column="3" selection-end-line="56" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/test/routes/shipmentDetails-test.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="62" column="44" selection-start-line="62" selection-start-column="43" selection-end-line="62" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -260,7 +261,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/routes/sender-test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1409">
+            <state relative-caret-position="45">
               <caret line="3" selection-start-line="3" selection-end-line="3" selection-end-column="44" />
             </state>
           </provider>
@@ -301,7 +302,6 @@
         <option value="$PROJECT_DIR$/routes/shipmentDetails.js" />
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/test/routes/details-test.js" />
-        <option value="$PROJECT_DIR$/test/routes/shipmentDetails-test.js" />
         <option value="$PROJECT_DIR$/routes/receivers.js" />
         <option value="$PROJECT_DIR$/routes/goods.js" />
         <option value="$PROJECT_DIR$/test/routes/fsf.js" />
@@ -311,6 +311,7 @@
         <option value="$PROJECT_DIR$/test/routes/goods-test.js" />
         <option value="$PROJECT_DIR$/test/routes/sender-test.js" />
         <option value="$PROJECT_DIR$/test/routes/receivers-test.js" />
+        <option value="$PROJECT_DIR$/test/routes/shipmentDetails-test.js" />
       </list>
     </option>
   </component>
@@ -2259,7 +2260,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="160810000" />
+    <option name="totallyTimeSpent" value="161549000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -2275,10 +2276,10 @@
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" sideWeight="0.5006954" side_tool="true" weight="0.17547569" />
-      <window_info id="npm" order="1" sideWeight="0.1618497" side_tool="true" visible="true" weight="0.205074" />
-      <window_info content_ui="combo" id="Project" order="2" sideWeight="0.83815026" visible="true" weight="0.205074" />
+      <window_info id="npm" order="1" sideWeight="0.16304348" side_tool="true" visible="true" weight="0.205074" />
+      <window_info active="true" content_ui="combo" id="Project" order="2" sideWeight="0.8369565" visible="true" weight="0.205074" />
       <window_info id="Structure" order="3" sideWeight="0.50344825" side_tool="true" weight="0.14587738" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="0" visible="true" weight="0.27816412" />
+      <window_info anchor="bottom" id="Terminal" order="0" visible="true" weight="0.23226704" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="2" weight="0.32702702" />
       <window_info anchor="bottom" id="Docker" order="3" show_stripe_button="false" />
@@ -2435,7 +2436,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/routes/fuzzySearch-test.js" />
-    <entry file="file://$PROJECT_DIR$/test/routes/shipmentDetails-test.js" />
     <entry file="file://$PROJECT_DIR$/test/routes/details-test.js" />
     <entry file="file://$PROJECT_DIR$/routes/fuzzySearch.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -2529,13 +2529,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/routes/goods-test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="19" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/goods.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-803">
@@ -2543,17 +2536,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/test/routes/receivers-test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="56" column="7" lean-forward="true" selection-start-line="10" selection-start-column="3" selection-end-line="56" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/routes/goods-test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="19" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/test/routes/sender-test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1409">
+        <state relative-caret-position="45">
           <caret line="3" selection-start-line="3" selection-end-line="3" selection-end-column="44" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/routes/receivers-test.js">
+    <entry file="file://$PROJECT_DIR$/test/routes/shipmentDetails-test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97">
-          <caret line="162" column="41" selection-start-line="162" selection-start-column="41" selection-end-line="162" selection-end-column="41" />
+        <state relative-caret-position="323">
+          <caret line="62" column="44" selection-start-line="62" selection-start-column="43" selection-end-line="62" selection-end-column="44" />
         </state>
       </provider>
     </entry>
