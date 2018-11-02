@@ -165,4 +165,30 @@ describe("Senders", function () {
         });
 
     });
+    describe("DELETE /senders/:id",()=>{
+        it("should return delete confirmation message ", function(done) {
+            chai.request(server)
+                .delete("/senders/10005")
+                .end(function(err, res) {
+                    expect(res).to.have.status(200);
+                    expect(res.body).to.have.property("message").equal("Sender Successfully Deleted!" );
+                    done();
+                });
+        });
+        after(function  (done) {
+            chai.request(server)
+                .get("/senders")
+                .end(function(err, res) {
+                    let result = _.map(res.body, (sender) => {
+                        return { _id: sender._id};
+                    }  );
+                    expect(res.body.length).to.equal(4);
+                    expect(result).to.include({_id: 10001});
+                    expect(result).to.include({_id: 10002});
+                    expect(result).to.include({_id: 10003});
+                    expect(result).to.include({_id: 10004});
+                    done();
+                });
+        });
+    });
 });
