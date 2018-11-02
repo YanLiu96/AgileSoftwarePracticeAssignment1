@@ -9,7 +9,7 @@ let _ = require("lodash" );
 
 describe("ShipmentDetails", function () {
     beforeEach((done) => {
-        Shipment.remove({}, (err) => {
+        Shipment.deleteMany({}, (err) => {
             done();
         });
         //add the test case to test
@@ -102,6 +102,32 @@ describe("ShipmentDetails", function () {
                     expect(res).to.have.status(200);
                     expect(res.body.length).to.equal(undefined);
                     expect(res.body).to.have.property("message").equal("shipmentDetails NOT Found!" );
+                    done();
+                });
+        });
+    });
+
+    describe("GET /goodAndShipment/:id", () => {
+        it("should return the all shipmentDetails which combine with shipment and good collection ", function (done) {
+            chai.request(server)
+                .get("/goodAndShipment/10001")
+                .end((err, res) => {
+                    expect(res).to.have.status(200);
+                    expect(res.body.length).to.equal(1);
+                    let result = _.map(res.body, (shipmentDetails) => {
+                        return {_id: shipmentDetails._id};
+                    });
+                    expect(result).to.include({_id: 10001});
+                    done();
+                });
+        });
+        it("should return sender not found when ID not existence", function (done) {
+            chai.request(server)
+                .get("/goodAndShipment/555")
+                .end((err, res) => {
+                    expect(res).to.have.status(200);
+                    expect(res.body.length).to.equal(undefined);
+                    expect(res.body).to.have.property("message").equal("NO Information!" );
                     done();
                 });
         });
