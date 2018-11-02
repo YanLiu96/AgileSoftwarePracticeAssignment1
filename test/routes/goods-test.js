@@ -10,7 +10,6 @@ let _ = require("lodash" );
 describe("Goods", function () {
     beforeEach((done) => { //Before each test we empty the database
         good.deleteMany({}, (err) => {
-            done();
         });
         //add the test case to test
         good.create({
@@ -68,8 +67,9 @@ describe("Goods", function () {
             },
             goodsLocation: "arriving at aim city"
         });
-
+        done();
     });
+
     describe("GET /goods", () => {
         it("should return all the goods in an array", function (done) {
             chai.request(server)
@@ -91,6 +91,32 @@ describe("Goods", function () {
 
     });
 
+
+    describe("GET /goods/:id", () => {
+        it("should return good which id is test_id:10001", function (done) {
+            chai.request(server)
+                .get("/goods/10001")
+                .end((err, res) => {
+                    expect(res).to.have.status(200);
+                    expect(res.body.length).to.equal(1);
+                    let result = _.map(res.body, (goods) => {
+                        return {_id: goods._id,goodsName:goods.goodsName};
+                    });
+                    expect(result).to.include({_id: 10001,goodsName:"Iphone X"});
+                    done();
+                });
+        });
+        it("should return good not found when ID not existence", function (done) {
+            chai.request(server)
+                .get("/goods/555")
+                .end((err, res) => {
+                    expect(res).to.have.status(200);
+                    expect(res.body.length).to.equal(undefined);
+                    expect(res.body).to.have.property("message").equal("Good NOT Found!" );
+                    done();
+                });
+        });
+    });
     describe("POST /goods", function () {
         it("should return confirmation message", function (done) {
             let good = {
@@ -131,32 +157,6 @@ describe("Goods", function () {
 
     });
 
-    describe("GET /goods/:id", () => {
-        it("should return good which id is test_id:10001", function (done) {
-            chai.request(server)
-                .get("/goods/10001")
-                .end((err, res) => {
-                    expect(res).to.have.status(200);
-                    expect(res.body.length).to.equal(1);
-                    let result = _.map(res.body, (goods) => {
-                        return {_id: goods._id,goodsName:goods.goodsName};
-                    });
-                    expect(result).to.include({_id: 10001,goodsName:"Iphone X"});
-                    done();
-                });
-        });
-        it("should return good not found when ID not existence", function (done) {
-            chai.request(server)
-                .get("/goods/555")
-                .end((err, res) => {
-                    expect(res).to.have.status(200);
-                    expect(res.body.length).to.equal(undefined);
-                    expect(res.body).to.have.property("message").equal("Good NOT Found!" );
-                    done();
-                });
-        });
-    });
-
     describe("PUT /goods/:id/changeLocation/:location", () => {
         it("should change th good location to testLocation", function (done) {
             chai.request(server)
@@ -186,27 +186,33 @@ describe("Goods", function () {
     });
 
     describe("DELETE /goods/:id",()=>{
-        it("should return delete confirmation message ", function(done) {
+        it("should return delete confirmation message ", function() {
             chai.request(server)
                 .delete("/goods/10005")
                 .end(function(err, res) {
                     expect(res).to.have.status(200);
                     expect(res.body).to.have.property("message").equal("Good Successfully Deleted!" );
-                    done();
                 });
+            after(function(done) {
+                chai.request(server)
+                    .get("/goods")
+                    .end(function(err, res) {
+                        let result = _.map(res.body, (good) => {
+                            return { _id: good._id};
+                        }  );
+                        expect(res.body.length).to.equal(4);
+                        expect(result).to.not.include({_id: 10005});
+
+                    });
+                done();
+            });
         });
-        after(function  (done) {
+        it('should return an error message when an invalid ID is given', function(done) {
             chai.request(server)
-                .get("/goods")
-                .end(function(err, res) {
-                    let result = _.map(res.body, (good) => {
-                        return { _id: good._id};
-                    }  );
-                    expect(res.body.length).to.equal(4);
-                    expect(result).to.include({_id: 10001});
-                    expect(result).to.include({_id: 10002});
-                    expect(result).to.include({_id: 10003});
-                    expect(result).to.include({_id: 10004});
+                .delete('/goods/dsdsd')
+                .end( (err, res) => {
+                    expect(res).to.have.status(200);
+                    expect(res.body.message).to.include('GOOD NOT DELETED!' ) ;
                     done();
                 });
         });

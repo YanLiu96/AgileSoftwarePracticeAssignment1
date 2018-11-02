@@ -10,7 +10,6 @@ let _ = require("lodash" );
 describe("ShipmentDetails", function () {
     beforeEach((done) => {
         Shipment.deleteMany({}, (err) => {
-            done();
         });
         //add the test case to test
         Shipment.create({
@@ -58,7 +57,7 @@ describe("ShipmentDetails", function () {
             },
             numberOfPackage: "1"
         });
-
+        done();
     });
     describe("GET /shipmentDetails", () => {
         it("should return the all shipmentDetails ", function (done) {
@@ -166,16 +165,14 @@ describe("ShipmentDetails", function () {
         });
     });
     describe("DELETE /shipmentDetails/:id",()=>{
-        it("should return delete confirmation message ", function(done) {
+        it("should return delete confirmation message ", function() {
             chai.request(server)
                 .delete("/shipmentDetails/10005")
                 .end(function(err, res) {
                     expect(res).to.have.status(200);
                     expect(res.body).to.have.property("message").equal("shipmentDetails Successfully Deleted!" );
-                    done();
                 });
         });
-
         after(function  (done) {
             chai.request(server)
                 .get("/shipmentDetails")
@@ -184,10 +181,17 @@ describe("ShipmentDetails", function () {
                         return { _id: shipmentDetail._id};
                     }  );
                     expect(res.body.length).to.equal(4);
-                    expect(result).to.include({_id: 10001});
-                    expect(result).to.include({_id: 10002});
-                    expect(result).to.include({_id: 10003});
-                    expect(result).to.include({_id: 10004});
+                    expect(result).to.not.include({_id: 10005});
+                });
+                done();
+        });
+
+        it('should return an error message when an invalid ID is given', function(done) {
+            chai.request(server)
+                .delete('/shipmentDetails/dsdsd')
+                .end( (err, res) => {
+                    expect(res).to.have.status(200);
+                    expect(res.body.message).to.include('shipmentDetails NOT DELETED!' ) ;
                     done();
                 });
         });

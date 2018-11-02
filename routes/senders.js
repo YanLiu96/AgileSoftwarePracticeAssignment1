@@ -10,7 +10,7 @@ router.findAllSenders = (req,res)=>{
         if (err)
             res.send(err);
         res.send(JSON.stringify(goods,null,5));
-    });
+    }).sort({_id:1});
 };
 
 router.findOneSender = (req, res) => {

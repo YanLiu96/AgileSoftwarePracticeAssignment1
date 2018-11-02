@@ -10,7 +10,7 @@ let _ = require("lodash" );
 describe("Receiver", function () {
     beforeEach((done) => {
         receiver.deleteMany({}, (err) => {
-            done();
+
         });
         //add the test case to test
         receiver.create({
@@ -53,8 +53,10 @@ describe("Receiver", function () {
             receiverAddress: "dsdasda",
             postcode: "X91HXT3"
         });
+        done();
 
     });
+
     describe("GET /receivers", () => {
         it("should return all the receivers", function (done) {
             chai.request(server)
@@ -158,13 +160,12 @@ describe("Receiver", function () {
         });
     });
     describe("DELETE /receivers/:id",()=>{
-        it("should return delete confirmation message ", function(done) {
+        it("should return delete confirmation message ", function() {
             chai.request(server)
                 .delete("/receivers/10005")
                 .end(function(err, res) {
                     expect(res).to.have.status(200);
                     expect(res.body).to.have.property("message").equal("Receiver Successfully Deleted!" );
-                    done();
                 });
         });
         after(function  (done) {
@@ -175,10 +176,16 @@ describe("Receiver", function () {
                         return { _id: receiver._id};
                     }  );
                     expect(res.body.length).to.equal(4);
-                    expect(result).to.include({_id: 10001});
-                    expect(result).to.include({_id: 10002});
-                    expect(result).to.include({_id: 10003});
-                    expect(result).to.include({_id: 10004});
+                    expect(result).to.not.include({_id: 10005});
+                });
+                    done();
+        });
+        it('should return an error message when an invalid ID is given', function(done) {
+            chai.request(server)
+                .delete('/receivers/dsdsd')
+                .end( (err, res) => {
+                    expect(res).to.have.status(200);
+                    expect(res.body.message).to.include('Receiver NOT DELETED!' ) ;
                     done();
                 });
         });

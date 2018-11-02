@@ -12,7 +12,7 @@ describe("Details", function () {
                 .get("/details")
                 .end((err, res) => {
                     expect(res).to.have.status(200);
-                    expect(res.body.length).to.equal(4);
+                    expect(res.body.length).to.equal(5);
                     let result = _.map(res.body, (goods) => {
                         return {_id: goods._id};
                     });
@@ -20,6 +20,7 @@ describe("Details", function () {
                     expect(result).to.include({_id: 10002});
                     expect(result).to.include({_id: 10003});
                     expect(result).to.include({_id: 10004});
+                    expect(result).to.include({_id: 10005});
                     done();
                 });
         });
