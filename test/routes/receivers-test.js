@@ -76,4 +76,30 @@ describe("Receiver", function () {
 
     });
 
+    describe("GET /receivers/:id", () => {
+        it("should return sender which id is test_id:10001", function (done) {
+            chai.request(server)
+                .get("/receivers/10001")
+                .end((err, res) => {
+                    expect(res).to.have.status(200);
+                    expect(res.body.length).to.equal(1);
+                    let result = _.map(res.body, (receiver) => {
+                        return {_id: receiver._id};
+                    });
+                    expect(result).to.include({_id: 10001});
+                    done();
+                });
+        });
+        it("should return receiver not found when ID not existence", function (done) {
+            chai.request(server)
+                .get("/receivers/555")
+                .end((err, res) => {
+                    expect(res).to.have.status(200);
+                    expect(res.body.length).to.equal(undefined);
+                    expect(res.body).to.have.property("message").equal("Receiver NOT Found!" );
+                    done();
+                });
+        });
+    });
+    
 });
