@@ -21,6 +21,16 @@ describe("FuzzySearch", function () {
                     done();
                 });
         });
+        it("should return no information when it does not have data", function (done) {
+            chai.request(server)
+                .get("/fuzzySearch/OOOOOO")
+                .end((err, res) => {
+                    expect(res).to.have.status(200);
+                    expect(res.body.length).to.equal(undefined);
+                    expect(res.body).to.have.property("message").equal("NO Information!");
+                    done();
+                });
+        });
 
     });
 
