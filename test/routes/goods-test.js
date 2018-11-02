@@ -9,7 +9,7 @@ let _ = require("lodash" );
 
 describe("Goods", function () {
     beforeEach((done) => { //Before each test we empty the database
-        Books.remove({}, (err) => {
+        Books.deleteMany({}, (err) => {
             done();
         });
         //add the test case to test
@@ -128,6 +128,31 @@ describe("Goods", function () {
         });
     });
 
-    
+    describe("GET /goods/:id", () => {
+        it("should return good which id is test_id:10001", function (done) {
+            chai.request(server)
+                .get("/goods/10001")
+                .end((err, res) => {
+                    expect(res).to.have.status(200);
+                    expect(res.body.length).to.equal(1);
+                    let result = _.map(res.body, (goods) => {
+                        return {_id: goods._id,goodsName:goods.goodsName};
+                    });
+                    expect(result).to.include({_id: 10001,goodsName:"Iphone X"});
+                    done();
+                });
+        });
+        it("should return good not found when ID not existence", function (done) {
+            chai.request(server)
+                .get("/goods/555")
+                .end((err, res) => {
+                    expect(res).to.have.status(200);
+                    expect(res.body.length).to.equal(undefined);
+                    expect(res.body).to.have.property("message").equal("Good NOT Found!" );
+                    done();
+                });
+        });
+    });
 
+    
 });
