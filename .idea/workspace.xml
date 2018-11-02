@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="109015f6-856f-411a-9b45-ee88ea73fc04" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/routes/goods-test.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/routes/goods-test.js" afterDir="false" />
-    </list>
+    <list default="true" id="109015f6-856f-411a-9b45-ee88ea73fc04" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -180,8 +177,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/routes/goods-test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-54">
-              <caret line="59" column="12" selection-start-line="59" selection-start-column="12" selection-end-line="59" selection-end-column="12" />
+            <state relative-caret-position="390">
+              <caret line="208" column="60" lean-forward="true" selection-start-line="208" selection-start-column="60" selection-end-line="208" selection-end-column="60" />
             </state>
           </provider>
         </entry>
@@ -327,9 +324,9 @@
       <path value="$PROJECT_DIR$/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="54" />
-    <option name="y" value="26" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="1" />
+    <option name="y" value="62" />
     <option name="width" value="1440" />
     <option name="height" value="811" />
   </component>
@@ -2218,12 +2215,12 @@
       <workItem from="1541157769601" duration="18000" />
       <workItem from="1541157803594" duration="390000" />
       <workItem from="1541159063468" duration="507000" />
-      <workItem from="1541159843481" duration="10540000" />
+      <workItem from="1541159843481" duration="10812000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="155942000" />
+    <option name="totallyTimeSpent" value="156214000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -2235,12 +2232,12 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="54" y="26" width="1440" height="811" extended-state="0" />
+    <frame x="0" y="63" width="1440" height="811" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" sideWeight="0.5006954" side_tool="true" weight="0.17547569" />
-      <window_info id="npm" order="1" sideWeight="0.28235295" side_tool="true" visible="true" weight="0.205074" />
-      <window_info content_ui="combo" id="Project" order="2" sideWeight="0.7176471" visible="true" weight="0.205074" />
+      <window_info id="npm" order="1" sideWeight="0.2800633" side_tool="true" visible="true" weight="0.205074" />
+      <window_info content_ui="combo" id="Project" order="2" sideWeight="0.7199367" visible="true" weight="0.205074" />
       <window_info id="Structure" order="3" sideWeight="0.50344825" side_tool="true" weight="0.14587738" />
       <window_info anchor="bottom" id="Terminal" order="0" weight="0.2837274" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
@@ -2248,7 +2245,7 @@
       <window_info anchor="bottom" id="Docker" order="3" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" />
-      <window_info active="true" anchor="bottom" id="Run" order="6" visible="true" weight="0.40890124" />
+      <window_info active="true" anchor="bottom" id="Run" order="6" visible="true" weight="0.12100139" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.3980447" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
@@ -2503,8 +2500,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/routes/goods-test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-54">
-          <caret line="59" column="12" selection-start-line="59" selection-start-column="12" selection-end-line="59" selection-end-column="12" />
+        <state relative-caret-position="390">
+          <caret line="208" column="60" lean-forward="true" selection-start-line="208" selection-start-column="60" selection-end-line="208" selection-end-column="60" />
         </state>
       </provider>
     </entry>
