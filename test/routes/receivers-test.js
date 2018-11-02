@@ -133,5 +133,16 @@ describe("Receiver", function () {
         });
     });
 
-
+    describe("PUT /receivers/:id/changePhoneNumber/:phoneNumber", () => {
+        it("should change th receiver phone number to 11223344", function (done) {
+            chai.request(server)
+                .put("/receivers/10005/changePhoneNumber/11223344")
+                .end(function (err, res) {
+                    expect(res).to.have.status(200);
+                    let receiver = res.body.data;
+                    expect(receiver).to.include({receiverPhoneNumber: "11223344"});
+                    done();
+                });
+        });
+    });
 });
