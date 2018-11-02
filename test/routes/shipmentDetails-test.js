@@ -132,4 +132,37 @@ describe("ShipmentDetails", function () {
                 });
         });
     });
+    describe("POST /shipmentDetails", function () {
+        it("should return confirmation message", function (done) {
+            let shipmentDetail = {
+                _id:131313,
+                numberOfPackage: 2,
+                totalWeightInKg:2,
+                dimensionsInCM:{
+                    length:2,
+                    width:2,
+                    height:2
+                }
+            };
+            chai.request(server)
+                .post("/shipmentDetails")
+                .send(shipmentDetail)
+                .end(function (err, res) {
+                    expect(res).to.have.status(200);
+                    expect(res.body).to.have.property("message").equal("shipmentDetails Successfully Added!");
+                    done();
+                });
+        });
+        it("should return error message when the shipmentDetails not add to the database", function (done) {
+            let shipmentDetails = {};
+            chai.request(server)
+                .post("/shipmentDetails")
+                .send(shipmentDetails)
+                .end(function (err, res) {
+                    expect(res).to.have.status(200);
+                    expect(res.body).to.have.property("message").equal("shipmentDetails NOT Added!");
+                    done();
+                });
+        });
+    });
 });
