@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="109015f6-856f-411a-9b45-ee88ea73fc04" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/routes/details-test.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/routes/details-test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/routes/fuzzySearch-test.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -125,7 +124,7 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="gitignore" value="1" />
-          <entry key="js" value="39" />
+          <entry key="js" value="40" />
           <entry key="json" value="2" />
           <entry key="www" value="1" />
         </counts>
@@ -133,19 +132,19 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="JSON" value="2" />
-          <entry key="JavaScript" value="31" />
+          <entry key="JavaScript" value="32" />
           <entry key="PLAIN_TEXT" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gitignore" value="1" />
-          <entry key="js" value="876" />
+          <entry key="js" value="878" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JavaScript" value="849" />
+          <entry key="JavaScript" value="851" />
           <entry key="PLAIN_TEXT" value="28" />
         </counts>
       </usages-collector>
@@ -177,15 +176,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/node_modules/mongodb/lib/utils.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="137">
-              <caret line="148" column="21" selection-start-line="148" selection-start-column="21" selection-end-line="148" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/node_modules/mongodb/lib/operations/collection_ops.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -231,11 +221,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/routes/details-test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="314">
-              <caret line="21" column="60" selection-start-line="21" selection-start-column="60" selection-end-line="21" selection-end-column="60" />
+            <state relative-caret-position="411">
+              <caret line="50" column="7" selection-start-line="50" selection-start-column="7" selection-end-line="50" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/test/routes/fuzzySearch-test.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="19" column="60" selection-start-line="19" selection-start-column="60" selection-end-line="19" selection-end-column="60" />
             </state>
           </provider>
         </entry>
@@ -297,7 +296,6 @@
         <option value="$PROJECT_DIR$/models/shipmentDetails.js" />
         <option value="$PROJECT_DIR$/routes/details.js" />
         <option value="$PROJECT_DIR$/routes/fuzzySearch.js" />
-        <option value="$PROJECT_DIR$/test/routes/fuzzySearch-test.js" />
         <option value="$PROJECT_DIR$/routes/senders.js" />
         <option value="$PROJECT_DIR$/routes/shipmentDetails.js" />
         <option value="$PROJECT_DIR$/app.js" />
@@ -312,6 +310,7 @@
         <option value="$PROJECT_DIR$/test/routes/shipmentDetails-test.js" />
         <option value="$PROJECT_DIR$/test/routes/receivers-test.js" />
         <option value="$PROJECT_DIR$/test/routes/details-test.js" />
+        <option value="$PROJECT_DIR$/test/routes/fuzzySearch-test.js" />
       </list>
     </option>
   </component>
@@ -2260,7 +2259,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="164177000" />
+    <option name="totallyTimeSpent" value="164436000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -2276,10 +2275,10 @@
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" sideWeight="0.5006954" side_tool="true" weight="0.17547569" />
-      <window_info id="npm" order="1" sideWeight="0.16221766" side_tool="true" visible="true" weight="0.205074" />
-      <window_info active="true" content_ui="combo" id="Project" order="2" sideWeight="0.8377823" visible="true" weight="0.205074" />
+      <window_info id="npm" order="1" sideWeight="0.16330275" side_tool="true" visible="true" weight="0.205074" />
+      <window_info content_ui="combo" id="Project" order="2" sideWeight="0.8366972" visible="true" weight="0.205074" />
       <window_info id="Structure" order="3" sideWeight="0.50344825" side_tool="true" weight="0.14587738" />
-      <window_info anchor="bottom" id="Terminal" order="0" visible="true" weight="0.32267037" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="0" visible="true" weight="0.24200279" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="2" weight="0.32702702" />
       <window_info anchor="bottom" id="Docker" order="3" show_stripe_button="false" />
@@ -2435,7 +2434,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/routes/fuzzySearch-test.js" />
     <entry file="file://$PROJECT_DIR$/routes/details.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="945">
@@ -2565,8 +2563,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/routes/details-test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="21" column="60" selection-start-line="21" selection-start-column="60" selection-end-line="21" selection-end-column="60" />
+        <state relative-caret-position="411">
+          <caret line="50" column="7" selection-start-line="50" selection-start-column="7" selection-end-line="50" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/routes/fuzzySearch-test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="60" selection-start-line="19" selection-start-column="60" selection-end-line="19" selection-end-column="60" />
         </state>
       </provider>
     </entry>
