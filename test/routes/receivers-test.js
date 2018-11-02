@@ -101,5 +101,37 @@ describe("Receiver", function () {
                 });
         });
     });
-    
+    describe("POST /receivers", function () {
+        it("should return confirmation message", function (done) {
+            let receiver = {
+                _id: "131313",
+                receiverName: "tsetReceiverName",
+                receiverPhoneNumber: "test43535",
+                receiverCountry:"testCountry",
+                receiverAddress:"testAddress",
+                postcode:"testcode"
+            };
+            chai.request(server)
+                .post("/receivers")
+                .send(receiver)
+                .end(function (err, res) {
+                    expect(res).to.have.status(200);
+                    expect(res.body).to.have.property("message").equal("receiver Successfully Added!");
+                    done();
+                });
+        });
+        it("should return error message when the receivers not add to the database", function (done) {
+            let receiver = {};
+            chai.request(server)
+                .post("/receivers")
+                .send(receiver)
+                .end(function (err, res) {
+                    expect(res).to.have.status(200);
+                    expect(res.body).to.have.property("message").equal("receiver NOT Added!");
+                    done();
+                });
+        });
+    });
+
+
 });
