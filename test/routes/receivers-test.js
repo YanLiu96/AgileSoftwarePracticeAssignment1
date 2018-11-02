@@ -157,4 +157,30 @@ describe("Receiver", function () {
                 });
         });
     });
+    describe("DELETE /receivers/:id",()=>{
+        it("should return delete confirmation message ", function(done) {
+            chai.request(server)
+                .delete("/receivers/10005")
+                .end(function(err, res) {
+                    expect(res).to.have.status(200);
+                    expect(res.body).to.have.property("message").equal("Receiver Successfully Deleted!" );
+                    done();
+                });
+        });
+        after(function  (done) {
+            chai.request(server)
+                .get("/receivers")
+                .end(function(err, res) {
+                    let result = _.map(res.body, (receiver) => {
+                        return { _id: receiver._id};
+                    }  );
+                    expect(res.body.length).to.equal(4);
+                    expect(result).to.include({_id: 10001});
+                    expect(result).to.include({_id: 10002});
+                    expect(result).to.include({_id: 10003});
+                    expect(result).to.include({_id: 10004});
+                    done();
+                });
+        });
+    });
 });
