@@ -138,4 +138,31 @@ describe("Senders", function () {
                 });
         });
     });
+    describe("GET /senders/findCount/:senderName", () => {
+        it("should count one sender send how much goods ", function (done) {
+            chai.request(server)
+                .get("/senders/findCount/Bao Jie")
+                .end((err, res) => {
+                    expect(res).to.have.status(200);
+                    expect(res.body.length).to.equal(1);
+                    let result = _.map(res.body, (sender) => {
+                        return {_id: sender._id};
+                    });
+                    expect(result).to.include({_id:"Bao Jie"});
+
+                    done();
+                });
+        });
+        it("should return bad search when senderName does not existence ", function (done) {
+            chai.request(server)
+                .get("/senders/findCount/erere")
+                .end((err, res) => {
+                    expect(res).to.have.status(200);
+                    expect(res.body.length).to.equal(undefined);
+                    expect(res.body).to.have.property("message").equal("NO Information!" );
+                    done();
+                });
+        });
+
+    });
 });
