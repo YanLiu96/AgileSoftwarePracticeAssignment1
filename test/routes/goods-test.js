@@ -75,7 +75,7 @@ describe("Goods", function () {
             chai.request(server)
                 .get("/goods")
                 .end((err, res) => {
-                    //expect(res).to.have.status(200);
+                    expect(res).to.have.status(200);
                     expect(res.body.length).to.equal(5);
                     let result = _.map(res.body, (goods) => {
                         return {_id: goods._id};
@@ -125,7 +125,10 @@ describe("Goods", function () {
                     expect(res.body).to.have.property("message").equal("Good NOT Added!");
                     done();
                 });
+
+
         });
+
     });
 
     describe("GET /goods/:id", () => {
@@ -154,5 +157,22 @@ describe("Goods", function () {
         });
     });
 
+    describe("PUT /goods/:id/changeLocation/:location", () => {
+        it("should change th good location to testLocation", function (done) {
+            chai.request(server)
+                .put("/goods/10001/changeLocation/testLocation")
+                .end(function (err, res) {
+                    expect(res).to.have.status(200);
+                    let good = res.body.data;
+                    expect(good).to.include({goodsLocation: "testLocation"});
+                    done();
+                });
+        });
+
+    });
+
     
+
+
+
 });

@@ -60,8 +60,10 @@ router.deleteGood = (req, res) => {
 
 router.changeGoodLocation = (req, res) => {
     goods.findById(req.params.id, function(err,goods) {
-        if (err)
-            res.json({ message: "Good NOT Found!", errmsg : err } );
+        if (err) {
+            res.status(404);
+            res.json({message: "Good NOT Found!", errmsg: err});
+        }
         else {
             goods.goodsLocation = req.params.location;
             goods.save(function (err) {
