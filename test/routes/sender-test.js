@@ -106,5 +106,36 @@ describe("Senders", function () {
         });
     });
 
-
+    describe("POST /senders", function () {
+        it("should return confirmation message", function (done) {
+            let sender = {
+                _id: "131313",
+                sendersName: "testName",
+                senderMethod:"EMS",
+                senderPhoneNumber: "test12334",
+                senderAddress: "testLocation",
+                postcode:"TESTCODE",
+                sendDate:"2018-10-21"
+            };
+            chai.request(server)
+                .post("/senders")
+                .send(sender)
+                .end(function (err, res) {
+                    expect(res).to.have.status(200);
+                    expect(res.body).to.have.property("message").equal("Sender Successfully Added!");
+                    done();
+                });
+        });
+        it("should return error message when the sender not add to the database", function (done) {
+            let sender = {};
+            chai.request(server)
+                .post("/senders")
+                .send(sender)
+                .end(function (err, res) {
+                    expect(res).to.have.status(200);
+                    expect(res.body).to.have.property("message").equal("Sender NOT Added!");
+                    done();
+                });
+        });
+    });
 });
