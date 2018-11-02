@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="109015f6-856f-411a-9b45-ee88ea73fc04" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="109015f6-856f-411a-9b45-ee88ea73fc04" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -112,19 +110,19 @@
     <session id="1258966951">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="10" />
+          <entry key="project.closed" value="11" />
           <entry key="project.open.time.0" value="2" />
           <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.3" value="1" />
-          <entry key="project.open.time.4" value="4" />
+          <entry key="project.open.time.4" value="5" />
           <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="10" />
+          <entry key="project.opened" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="gitignore" value="1" />
-          <entry key="js" value="26" />
+          <entry key="js" value="27" />
           <entry key="json" value="2" />
           <entry key="www" value="1" />
         </counts>
@@ -133,19 +131,19 @@
         <counts>
           <entry key="JSON" value="2" />
           <entry key="JavaScript" value="19" />
-          <entry key="PLAIN_TEXT" value="9" />
+          <entry key="PLAIN_TEXT" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gitignore" value="1" />
-          <entry key="js" value="657" />
+          <entry key="js" value="662" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JavaScript" value="646" />
-          <entry key="PLAIN_TEXT" value="12" />
+          <entry key="PLAIN_TEXT" value="17" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts" />
@@ -179,7 +177,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/receivers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
+            <state relative-caret-position="1260">
               <caret line="84" column="2" selection-start-line="84" selection-start-column="2" selection-end-line="84" selection-end-column="2" />
             </state>
           </provider>
@@ -215,7 +213,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/senders.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
+            <state relative-caret-position="585">
               <caret line="39" column="31" selection-start-line="39" selection-start-column="31" selection-end-line="39" selection-end-column="31" />
             </state>
           </provider>
@@ -242,19 +240,15 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/routes/goods-test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="32" column="38" lean-forward="true" selection-start-line="32" selection-start-column="38" selection-end-line="32" selection-end-column="38" />
+            <state relative-caret-position="-1444">
+              <caret line="24" column="41" lean-forward="true" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/routes/senders-test.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2308">
-              <caret line="22" column="42" selection-start-line="22" selection-end-line="22" selection-end-column="42" />
-            </state>
-          </provider>
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -336,17 +330,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
-          <expand>
-            <path>
-              <item name="transportation" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -384,6 +367,17 @@
               <item name="transportation" type="b2602c69:ProjectViewProjectNode" />
               <item name="transportation" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="transportation" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
             </path>
           </expand>
           <select />
@@ -2241,11 +2235,12 @@
       <workItem from="1541175870897" duration="735000" />
       <workItem from="1541176652416" duration="155000" />
       <workItem from="1541176850116" duration="214000" />
+      <workItem from="1541177304554" duration="106000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="157554000" />
+    <option name="totallyTimeSpent" value="157660000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -2257,11 +2252,12 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="5" y="23" width="1440" height="811" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="811" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" sideWeight="0.5006954" side_tool="true" weight="0.17547569" />
-      <window_info id="npm" order="1" sideWeight="0.15855354" side_tool="true" visible="true" weight="0.205074" />
-      <window_info content_ui="combo" id="Project" order="2" sideWeight="0.84144646" visible="true" weight="0.205074" />
+      <window_info id="npm" order="1" sideWeight="0.15994437" side_tool="true" visible="true" weight="0.205074" />
+      <window_info active="true" content_ui="combo" id="Project" order="2" sideWeight="0.84005564" visible="true" weight="0.205074" />
       <window_info id="Structure" order="3" sideWeight="0.50344825" side_tool="true" weight="0.14587738" />
       <window_info anchor="bottom" id="Terminal" order="0" weight="0.32267037" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
@@ -2475,7 +2471,7 @@
     <entry file="file://$PROJECT_DIR$/test/routes/fsf.js" />
     <entry file="file://$PROJECT_DIR$/routes/receivers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="1260">
           <caret line="84" column="2" selection-start-line="84" selection-start-column="2" selection-end-line="84" selection-end-column="2" />
         </state>
       </provider>
@@ -2501,6 +2497,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/routes/senders.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="39" column="31" selection-start-line="39" selection-start-column="31" selection-end-line="39" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/models/goods.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -2515,29 +2518,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/senders.js">
+    <entry file="file://$PROJECT_DIR$/test/routes/goods-test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="39" column="31" selection-start-line="39" selection-start-column="31" selection-end-line="39" selection-end-column="31" />
+        <state relative-caret-position="-1444">
+          <caret line="24" column="41" lean-forward="true" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/routes/senders-test.js">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/routes/goods-test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="38" lean-forward="true" selection-start-line="32" selection-start-column="38" selection-end-line="32" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/routes/senders-test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2308">
-          <caret line="22" column="42" selection-start-line="22" selection-end-line="22" selection-end-column="42" />
-        </state>
-      </provider>
     </entry>
   </component>
 </project>
