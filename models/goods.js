@@ -9,7 +9,7 @@ let GoodSchema = new mongoose.Schema({
         phoneNumber:String,
     },
     goodsLocation: String
-},{versionKey:false},
+},{versionKey:false},{unique:false},
 { collection: "goods" });
-
+GoodSchema.set('autoIndex', false);
 module.exports = mongoose.model("goods", GoodSchema);

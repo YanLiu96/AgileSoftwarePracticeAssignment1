@@ -12,62 +12,65 @@ describe("Goods", function () {
         good.deleteMany({}, (err) => {
         });
         //add the test case to test
-        good.create({
-            _id: 10001,
-            goodsName: "Iphone X",
-            goodsKind: "expensive",
-            freight: 12.5,
-            deliveryman: {
-                deliverymanName: "d1",
-                phoneNumber: "15261820009"
+        good.insertMany([
+            {
+                _id: 10001,
+                goodsName: "Iphone X",
+                goodsKind: "expensive",
+                freight: 12.5,
+                deliveryman: {
+                    deliverymanName: "d1",
+                    phoneNumber: "15261820009"
+                },
+                goodsLocation: "at waterford"
             },
-            goodsLocation: "at waterford"
-        });
-        good.create({
-            _id: 10002,
-            goodsName: "Mac Pro",
-            goodsKind: "expensive",
-            freight: 28.4,
-            deliveryman: {
-                deliverymanName: "d2",
-                phoneNumber: "18761356166"
+            {
+                _id: 10002,
+                goodsName: "Mac Pro",
+                goodsKind: "expensive",
+                freight: 28.4,
+                deliveryman: {
+                    deliverymanName: "d2",
+                    phoneNumber: "18761356166"
+                },
+                goodsLocation: "In the transfer station"
             },
-            goodsLocation: "In the transfer station"
-        });
-        good.create({
-            _id: 10003,
-            goodsName: "AJ 1",
-            goodsKind: "soft",
-            freight: 12.6,
-            deliveryman: {
-                deliverymanName: "d3",
-                phoneNumber: "689860480"
+            {
+                _id: 10003,
+                goodsName: "AJ 1",
+                goodsKind: "soft",
+                freight: 12.6,
+                deliveryman: {
+                    deliverymanName: "d3",
+                    phoneNumber: "689860480"
+                },
+                goodsLocation: "In the pass station"
             },
-            goodsLocation: "In the pass station"
-        });
-        good.create({
-            _id: 10004,
-            goodsName: "Superme",
-            goodsKind: "clothes",
-            freight: 12.8,
-            deliveryman: {
-                deliverymanName: "d4",
-                phoneNumber: "110119118"
+            {
+                _id: 10004,
+                goodsName: "Superme",
+                goodsKind: "clothes",
+                freight: 12.8,
+                deliveryman: {
+                    deliverymanName: "d4",
+                    phoneNumber: "110119118"
+                },
+                goodsLocation: "still not send"
             },
-            goodsLocation: "still not send"
+            {
+                _id: 10005,
+                goodsName: "Car",
+                goodsKind: "expensive",
+                freight: 2120,
+                deliveryman: {
+                    deliverymanName: "d5",
+                    phoneNumber: "777777777"
+                },
+                goodsLocation: "arriving at aim city"
+            }
+        ], (err) => {
+            done();
         });
-        good.create({
-            _id: 10005,
-            goodsName: "Car",
-            goodsKind: "expensive",
-            freight: 2120,
-            deliveryman: {
-                deliverymanName: "d5",
-                phoneNumber: "777777777"
-            },
-            goodsLocation: "arriving at aim city"
-        });
-        done();
     });
 
     describe("GET /goods", () => {
@@ -186,27 +189,30 @@ describe("Goods", function () {
     });
 
     describe("DELETE /goods/:id",()=>{
-        it("should return delete confirmation message ", function() {
+        it("should return delete confirmation message ", function(done) {
             chai.request(server)
                 .delete("/goods/10005")
                 .end(function(err, res) {
                     expect(res).to.have.status(200);
                     expect(res.body).to.have.property("message").equal("Good Successfully Deleted!" );
+                    done();
                 });
-            after(function(done) {
-                chai.request(server)
-                    .get("/goods")
-                    .end(function(err, res) {
-                        let result = _.map(res.body, (good) => {
-                            return { _id: good._id};
-                        }  );
-                        expect(res.body.length).to.equal(4);
-                        expect(result).to.not.include({_id: 10005});
-
-                    });
-                done();
-            });
         });
+        after(function(done) {
+            chai.request(server)
+                .get("/goods")
+                .end(function(err, res) {
+                    let result = _.map(res.body, (good) => {
+                        return { _id: good._id};
+                    }  );
+                    expect(res.body.length).to.equal(4);
+                    expect(result).to.not.include({_id: 10005});
+                    done();
+                });
+        });
+
+    });
+    describe("DELETE /goods/:id",()=>{
         it('should return an error message when an invalid ID is given', function(done) {
             chai.request(server)
                 .delete('/goods/dsdsd')
@@ -217,5 +223,4 @@ describe("Goods", function () {
                 });
         });
     });
-
 });

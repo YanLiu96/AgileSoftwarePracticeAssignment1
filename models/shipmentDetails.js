@@ -1,5 +1,5 @@
 let mongoose = require("mongoose");
-let GoodSchema = new mongoose.Schema({
+let ShipmentSchema = new mongoose.Schema({
     _id:Number,
     numberOfPackage: Number,
     totalWeightInKg:Number,
@@ -8,7 +8,7 @@ let GoodSchema = new mongoose.Schema({
         width:Number,
         height:Number
     },
-},{versionKey:false},
+},{versionKey:false},{unique:false},
 { collection: "shipmentDetails" });
-
-module.exports = mongoose.model("shipmentDetails", GoodSchema);
+ShipmentSchema.set('autoIndex', false);
+module.exports = mongoose.model("shipmentDetails", ShipmentSchema);

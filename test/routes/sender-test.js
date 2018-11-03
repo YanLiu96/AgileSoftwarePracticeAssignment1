@@ -12,52 +12,55 @@ describe("Senders", function () {
         sender.deleteMany({}, (err) => {
         });
         //add the test case to test
-        sender.create({
-            _id: 10001,
-            senderMethod: "UPS",
-            sendersName: "Yan Liu",
-            senderPhoneNumber: "08338401313",
-            senderAddress: "ireland",
-            postcode: "X42 YX36",
-            sendDate: "2018-3-19"
+        sender.insertMany([
+            {
+                _id: 10001,
+                senderMethod: "UPS",
+                sendersName: "Yan Liu",
+                senderPhoneNumber: "08338401313",
+                senderAddress: "ireland",
+                postcode: "X42 YX36",
+                sendDate: "2018-3-19"
+            },
+            {
+                _id: 10002,
+                senderMethod: "FedEx",
+                sendersName: "Yin Wu Jiu Ge",
+                senderPhoneNumber: "798668668",
+                senderAddress: "china",
+                postcode: "X12 XX56",
+                sendDate: "2018-3-20"
+            },
+            {
+                _id: 10003,
+                senderMethod: "EMS",
+                sendersName: "Bao Jie",
+                senderPhoneNumber: "110",
+                senderAddress: "Waterford",
+                postcode: "X78 TU677",
+                sentDate: "2018-9-12"
+            },
+            {
+                _id: 10004,
+                senderMethod: "TNT ",
+                sendersName: "Hellen",
+                senderPhoneNumber: "11012121",
+                senderAddress: "Waterford",
+                postcode: "JX67 FSF7",
+                sendDate: "2018-7-5"
+            },
+            {
+                _id: 10005,
+                senderMethod: "UPS",
+                sendersName: "Yan Liu",
+                senderPhoneNumber: "15261820009",
+                senderAddress: "BeiJing",
+                postcode: "YD9 FSF6",
+                sendDate: "2018-9-11"
+            }
+        ], (err) => {
+            done();
         });
-        sender.create({
-            _id: 10002,
-            senderMethod: "FedEx",
-            sendersName: "Yin Wu Jiu Ge",
-            senderPhoneNumber: "798668668",
-            senderAddress: "china",
-            postcode: "X12 XX56",
-            sendDate: "2018-3-20"
-        });
-        sender.create({
-            _id: 10003,
-            senderMethod: "EMS",
-            sendersName: "Bao Jie",
-            senderPhoneNumber: "110",
-            senderAddress: "Waterford",
-            postcode: "X78 TU677",
-            sentDate: "2018-9-12"
-        });
-        sender.create({
-            _id: 10004,
-            senderMethod: "TNT ",
-            sendersName: "Hellen",
-            senderPhoneNumber: "11012121",
-            senderAddress: "Waterford",
-            postcode: "JX67 FSF7",
-            sendDate: "2018-7-5"
-        });
-        sender.create({
-            _id: 10005,
-            senderMethod: "UPS",
-            sendersName: "Yan Liu",
-            senderPhoneNumber: "15261820009",
-            senderAddress: "BeiJing",
-            postcode: "YD9 FSF6",
-            sendDate: "2018-9-11"
-        });
-        done();
     });
     describe("GET /senders", () => {
         it("should return all the senders", function (done) {
@@ -137,6 +140,7 @@ describe("Senders", function () {
                 });
         });
     });
+
     describe("GET /senders/findCount/:senderName", () => {
         it("should count one sender send how much goods ", function (done) {
             chai.request(server)
@@ -151,7 +155,8 @@ describe("Senders", function () {
 
                     done();
                 });
-        });
+        })
+
         it("should return bad search when senderName does not existence ", function (done) {
             chai.request(server)
                 .get("/senders/findCount/erere")
@@ -164,13 +169,15 @@ describe("Senders", function () {
         });
 
     });
+
     describe("DELETE /senders/:id",()=>{
-        it("should return delete confirmation message ", function() {
+        it("should return delete confirmation message ", function(done) {
             chai.request(server)
                 .delete("/senders/10005")
                 .end(function(err, res) {
                     expect(res).to.have.status(200);
                     expect(res.body).to.have.property("message").equal("Sender Successfully Deleted!" );
+                    done();
                 });
         });
         after(function (done) {
@@ -182,10 +189,13 @@ describe("Senders", function () {
                     }  );
                     expect(res.body.length).to.equal(4);
                     expect(result).to.not.include({_id: 10005});
-                });
                     done();
+                });
         });
 
+
+    });
+    describe("DELETE /senders/:id",()=>{
         it('should return an error message when an invalid ID is given', function(done) {
             chai.request(server)
                 .delete('/senders/dsdsd')
@@ -195,6 +205,6 @@ describe("Senders", function () {
                     done();
                 });
         });
-
     });
+
 });

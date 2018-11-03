@@ -7,7 +7,7 @@ let SenderSchema = new mongoose.Schema({
     senderAddress: String,
     postcode:String,
     sendDate:String
-},{versionKey:false},
+},{versionKey:false},{unique:false},
 { collection: "senders" });
-
+SenderSchema.set('autoIndex', false);
 module.exports = mongoose.model("senders", SenderSchema);

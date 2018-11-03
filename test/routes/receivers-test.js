@@ -10,51 +10,52 @@ let _ = require("lodash" );
 describe("Receiver", function () {
     beforeEach((done) => {
         receiver.deleteMany({}, (err) => {
-
         });
         //add the test case to test
-        receiver.create({
-            _id: 10001,
-            receiverName: "ads",
-            receiverPhoneNumber: "11111111",
-            receiverCountry: "French",
-            receiverAddress: "dsdasda",
-            postcode: "X78 DADA"
+        receiver.insertMany([
+            {
+                _id: 10001,
+                receiverName: "ads",
+                receiverPhoneNumber: "11111111",
+                receiverCountry: "French",
+                receiverAddress: "dsdasda",
+                postcode: "X78 DADA"
+            },
+            {
+                _id: 10002,
+                receiverName: "woshinidie",
+                receiverPhoneNumber: "2222222",
+                receiverCountry: "Chnia",
+                receiverAddress: "dsdasda",
+                postcode: "SDA 1111"
+            },
+            {
+                _id: 10003,
+                receiverName: "shabi",
+                receiverPhoneNumber: "33333333",
+                receiverCountry: "South Korea",
+                receiverAddress: "dsdasda",
+                postcode: "3231323"
+            },
+            {
+                _id: 10004,
+                receiverName: "Xu Yue",
+                receiverPhoneNumber: "6666666",
+                receiverCountry: "Norway",
+                receiverAddress: "dunblin",
+                postcode: "FSDFFS"
+            },
+            {
+                _id: 10005,
+                receiverName: "David",
+                receiverPhoneNumber: "434234235",
+                receiverCountry: "Ireland",
+                receiverAddress: "dsdasda",
+                postcode: "X91HXT3"
+            }
+        ],(err)=>{
+            done();
         });
-        receiver.create({
-            _id: 10002,
-            receiverName: "woshinidie",
-            receiverPhoneNumber: "2222222",
-            receiverCountry: "Chnia",
-            receiverAddress: "dsdasda",
-            postcode: "SDA 1111"
-        });
-        receiver.create({
-            _id: 10003,
-            receiverName: "shabi",
-            receiverPhoneNumber: "33333333",
-            receiverCountry: "South Korea",
-            receiverAddress: "dsdasda",
-            postcode: "3231323"
-        });
-        receiver.create({
-            _id: 10004,
-            receiverName: "Xu Yue",
-            receiverPhoneNumber: "6666666",
-            receiverCountry: "Norway",
-            receiverAddress: "dunblin",
-            postcode: "FSDFFS"
-        });
-        receiver.create({
-            _id: 10005,
-            receiverName: "David",
-            receiverPhoneNumber: "434234235",
-            receiverCountry: "Ireland",
-            receiverAddress: "dsdasda",
-            postcode: "X91HXT3"
-        });
-        done();
-
     });
 
     describe("GET /receivers", () => {
@@ -160,12 +161,13 @@ describe("Receiver", function () {
         });
     });
     describe("DELETE /receivers/:id",()=>{
-        it("should return delete confirmation message ", function() {
+        it("should return delete confirmation message ", function(done) {
             chai.request(server)
                 .delete("/receivers/10005")
                 .end(function(err, res) {
                     expect(res).to.have.status(200);
                     expect(res.body).to.have.property("message").equal("Receiver Successfully Deleted!" );
+                    done();
                 });
         });
         after(function  (done) {
@@ -177,9 +179,13 @@ describe("Receiver", function () {
                     }  );
                     expect(res.body.length).to.equal(4);
                     expect(result).to.not.include({_id: 10005});
-                });
                     done();
+                });
         });
+
+    });
+
+    describe("DELETE /receivers/:id",()=>{
         it('should return an error message when an invalid ID is given', function(done) {
             chai.request(server)
                 .delete('/receivers/dsdsd')

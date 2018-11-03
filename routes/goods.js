@@ -5,6 +5,7 @@ let mongoose = require("mongoose");
 
 var mongodbUri = "mongodb://YanLiu96:LY19961222..@ds251332.mlab.com:51332/yanliu";
 mongoose.connect(mongodbUri,{useNewUrlParser:true});
+mongoose.set('useFindAndModify', false);
 let db = mongoose.connection;
 db.on("error", function (err) {
     console.log("Unable to Connect to [ " + db.name + " ]", err);
