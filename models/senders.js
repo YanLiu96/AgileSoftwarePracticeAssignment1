@@ -9,5 +9,5 @@ let SenderSchema = new mongoose.Schema({
     sendDate:String
 },{versionKey:false},{unique:false},
 { collection: "senders" });
-SenderSchema.set('autoIndex', false);
+SenderSchema.set("autoIndex", false);
 module.exports = mongoose.model("senders", SenderSchema);

@@ -1,7 +1,7 @@
 let chai = require("chai");
 let chaiHttp = require("chai-http");
 let server = require("../../bin/www");
-let sender = require("../../models/senders")
+let sender = require("../../models/senders");
 let expect = chai.expect;
 chai.use(require("chai-things"));
 chai.use(chaiHttp);
@@ -155,7 +155,7 @@ describe("Senders", function () {
 
                     done();
                 });
-        })
+        });
 
         it("should return bad search when senderName does not existence ", function (done) {
             chai.request(server)
@@ -196,12 +196,12 @@ describe("Senders", function () {
 
     });
     describe("DELETE /senders/:id",()=>{
-        it('should return an error message when an invalid ID is given', function(done) {
+        it("should return an error message when an invalid ID is given", function(done) {
             chai.request(server)
-                .delete('/senders/dsdsd')
+                .delete("/senders/dsdsd")
                 .end( (err, res) => {
                     expect(res).to.have.status(200);
-                    expect(res.body.message).to.include('Sender NOT DELETED!' ) ;
+                    expect(res.body.message).to.include("Sender NOT DELETED!" ) ;
                     done();
                 });
         });

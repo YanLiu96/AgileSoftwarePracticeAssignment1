@@ -10,5 +10,5 @@ let ShipmentSchema = new mongoose.Schema({
     },
 },{versionKey:false},{unique:false},
 { collection: "shipmentDetails" });
-ShipmentSchema.set('autoIndex', false);
+ShipmentSchema.set("autoIndex", false);
 module.exports = mongoose.model("shipmentDetails", ShipmentSchema);

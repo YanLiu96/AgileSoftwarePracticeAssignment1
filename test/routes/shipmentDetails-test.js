@@ -194,12 +194,12 @@ describe("ShipmentDetails", function () {
     });
 
     describe("DELETE /shipmentDetails/:id",()=>{
-        it('should return an error message when an invalid ID is given', function(done) {
+        it("should return an error message when an invalid ID is given", function(done) {
             chai.request(server)
-                .delete('/shipmentDetails/dsdsd')
+                .delete("/shipmentDetails/dsdsd")
                 .end( (err, res) => {
                     expect(res).to.have.status(200);
-                    expect(res.body.message).to.include('shipmentDetails NOT DELETED!' ) ;
+                    expect(res.body.message).to.include("shipmentDetails NOT DELETED!" ) ;
                     done();
                 });
         });

@@ -1,7 +1,7 @@
 let chai = require("chai");
 let chaiHttp = require("chai-http");
 let server = require("../../bin/www");
-let good = require("../../models/goods")
+let good = require("../../models/goods");
 let expect = chai.expect;
 chai.use(require("chai-things"));
 chai.use(chaiHttp);
@@ -213,12 +213,12 @@ describe("Goods", function () {
 
     });
     describe("DELETE /goods/:id",()=>{
-        it('should return an error message when an invalid ID is given', function(done) {
+        it("should return an error message when an invalid ID is given", function(done) {
             chai.request(server)
-                .delete('/goods/dsdsd')
+                .delete("/goods/dsdsd")
                 .end( (err, res) => {
                     expect(res).to.have.status(200);
-                    expect(res.body.message).to.include('GOOD NOT DELETED!' ) ;
+                    expect(res.body.message).to.include("GOOD NOT DELETED!" ) ;
                     done();
                 });
         });

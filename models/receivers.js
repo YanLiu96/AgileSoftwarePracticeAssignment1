@@ -8,5 +8,5 @@ let ReceiverSchema = new mongoose.Schema({
     postcode:String
 },{versionKey:false},{unique:false},
 { collection: "receivers" });
-ReceiverSchema.set('autoIndex', false);
+ReceiverSchema.set("autoIndex", false);
 module.exports = mongoose.model("receivers", ReceiverSchema);

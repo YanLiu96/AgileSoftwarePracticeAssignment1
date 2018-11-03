@@ -11,5 +11,5 @@ let GoodSchema = new mongoose.Schema({
     goodsLocation: String
 },{versionKey:false},{unique:false},
 { collection: "goods" });
-GoodSchema.set('autoIndex', false);
+GoodSchema.set("autoIndex", false);
 module.exports = mongoose.model("goods", GoodSchema);
