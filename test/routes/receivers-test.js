@@ -66,13 +66,13 @@ describe("Receiver", function () {
                     expect(res).to.have.status(200);
                     expect(res.body.length).to.equal(5);
                     let result = _.map(res.body, (receiver) => {
-                        return {_id: receiver._id};
+                        return {_id: receiver._id,receiverName:receiver.receiverName};
                     });
-                    expect(result).to.include({_id: 10001});
-                    expect(result).to.include({_id: 10002});
-                    expect(result).to.include({_id: 10003});
-                    expect(result).to.include({_id: 10004});
-                    expect(result).to.include({_id: 10005});
+                    expect(result).to.include({_id: 10001,receiverName:"ads"});
+                    expect(result).to.include({_id: 10002,receiverName:"woshinidie"});
+                    expect(result).to.include({_id: 10003,receiverName:"shabi"});
+                    expect(result).to.include({_id: 10004,receiverName:"Xu Yue"});
+                    expect(result).to.include({_id: 10005,receiverName:"David"});
                     done();
                 });
         });
@@ -87,9 +87,9 @@ describe("Receiver", function () {
                     expect(res).to.have.status(200);
                     expect(res.body.length).to.equal(1);
                     let result = _.map(res.body, (receiver) => {
-                        return {_id: receiver._id};
+                        return {_id: receiver._id,receiverName:receiver.receiverName};
                     });
-                    expect(result).to.include({_id: 10001});
+                    expect(result).to.include({_id: 10001,receiverName:"ads"});
                     done();
                 });
         });
@@ -104,8 +104,8 @@ describe("Receiver", function () {
                 });
         });
     });
-    describe("POST /receivers", function () {
-        it("should return confirmation message", function (done) {
+    describe("POST /receivers", ()=> {
+        it("should return confirmation message that receiver add successfully", function (done) {
             let receiver = {
                 _id: "131313",
                 receiverName: "tsetReceiverName",
@@ -123,6 +123,20 @@ describe("Receiver", function () {
                     done();
                 });
         });
+        after(function  (done) {
+            chai.request(server)
+                .get("/receivers")
+                .end(function(err, res) {
+                    let result = _.map(res.body, (receiver) => {
+                        return { _id: receiver._id,receiverName:receiver.receiverName};
+                    }  );
+                    expect(res.body.length).to.equal(6);
+                    expect(result).to.include({_id: 131313,receiverName:"tsetReceiverName"});
+                    done();
+                });
+        });
+    });
+    describe("POST /receivers", function () {
         it("should return error message when the receivers not add to the database", function (done) {
             let receiver = {};
             chai.request(server)
@@ -147,6 +161,14 @@ describe("Receiver", function () {
                     done();
                 });
         });
+        it("should return a 404 error for invalid receiver id to change receiver phone number", function(done) {
+            chai.request(server)
+                .put("/goods/1100001/changePhoneNumber/")
+                .end(function(err, res) {
+                    expect(res).to.have.status(404);
+                    done();
+                });
+        });
     });
     describe("PUT /receivers/:id/changeAddress/:address", () => {
         it("should change th receiver address  to testaddress", function (done) {
@@ -159,7 +181,16 @@ describe("Receiver", function () {
                     done();
                 });
         });
+        it("should return a 404 error for invalid receiver id to change receiver address", function(done) {
+            chai.request(server)
+                .put("/goods/1100001/changeAddress/")
+                .end(function(err, res) {
+                    expect(res).to.have.status(404);
+                    done();
+                });
+        });
     });
+
     describe("DELETE /receivers/:id",()=>{
         it("should return delete confirmation message ", function(done) {
             chai.request(server)
@@ -175,10 +206,10 @@ describe("Receiver", function () {
                 .get("/receivers")
                 .end(function(err, res) {
                     let result = _.map(res.body, (receiver) => {
-                        return { _id: receiver._id};
+                        return { _id: receiver._id,receiverName:receiver.receiverName};
                     }  );
                     expect(res.body.length).to.equal(4);
-                    expect(result).to.not.include({_id: 10005});
+                    expect(result).to.not.include({_id: 10005,receiverName:"David"});
                     done();
                 });
         });

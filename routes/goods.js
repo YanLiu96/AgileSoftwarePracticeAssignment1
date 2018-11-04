@@ -62,13 +62,16 @@ router.deleteGood = (req, res) => {
 router.changeGoodLocation = (req, res) => {
     goods.findById(req.params.id, function(err,goods) {
         if (err) {
+            res.status(404);
             res.json({message: "Good NOT Found!", errmsg: err});
         }
         else {
             goods.goodsLocation = req.params.location;
             goods.save(function (err) {
-                if (err)
+                if (err){
+                    res.status(404);
                     res.json({ message: "Good Location NOT Change!", errmsg : err } );
+                }
                 else
                     res.json({ message: "Good Location Successfully Change!", data: goods });
             });
@@ -78,14 +81,18 @@ router.changeGoodLocation = (req, res) => {
 
 router.changeDeliveryman = (req, res) => {
     goods.findById(req.params.id, function(err,goods) {
-        if (err)
+        if (err){
+            res.status(404);
             res.json({ message: " NO found!", errmsg : err } );
+        }
         else {
             goods.deliveryman.deliverymanName = req.params.name;
             goods.deliveryman.phoneNumber = req.params.phoneNumber;
             goods.save(function (err) {
-                if (err)
+                if (err){
+                    res.status(404);
                     res.json({ message: "NOT change!", errmsg : err } );
+                }
                 else
                     res.json({ message: "Delivery man name and phone number change!", data: goods });
             });

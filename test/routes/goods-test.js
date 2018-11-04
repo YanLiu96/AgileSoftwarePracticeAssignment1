@@ -81,13 +81,13 @@ describe("Goods", function () {
                     expect(res).to.have.status(200);
                     expect(res.body.length).to.equal(5);
                     let result = _.map(res.body, (goods) => {
-                        return {_id: goods._id};
+                        return {_id: goods._id,goodsName:goods.goodsName,goodsKind:goods.goodsKind};
                     });
-                    expect(result).to.include({_id: 10001});
-                    expect(result).to.include({_id: 10002});
-                    expect(result).to.include({_id: 10003});
-                    expect(result).to.include({_id: 10004});
-                    expect(result).to.include({_id: 10005});
+                    expect(result).to.include({_id: 10001,goodsName:"Iphone X",goodsKind:"expensive"});
+                    expect(result).to.include({_id: 10002,goodsName:"Mac Pro",goodsKind:"expensive"});
+                    expect(result).to.include({_id: 10003,goodsName:"AJ 1",goodsKind:"soft"});
+                    expect(result).to.include({_id: 10004,goodsName:"Superme",goodsKind:"clothes"});
+                    expect(result).to.include({_id: 10005,goodsName:"Car",goodsKind:"expensive"});
                     done();
                 });
         });
@@ -103,9 +103,9 @@ describe("Goods", function () {
                     expect(res).to.have.status(200);
                     expect(res.body.length).to.equal(1);
                     let result = _.map(res.body, (goods) => {
-                        return {_id: goods._id,goodsName:goods.goodsName};
+                        return {_id: goods._id,goodsName:goods.goodsName,goodsKind:goods.goodsKind};
                     });
-                    expect(result).to.include({_id: 10001,goodsName:"Iphone X"});
+                    expect(result).to.include({_id: 10001,goodsName:"Iphone X",goodsKind:"expensive"});
                     done();
                 });
         });
@@ -120,8 +120,9 @@ describe("Goods", function () {
                 });
         });
     });
-    describe("POST /goods", function () {
-        it("should return confirmation message", function (done) {
+
+    describe("POST /goods", ()=> {
+        it("should return confirmation message and database changes", function (done) {
             let good = {
                 _id: "131313",
                 goodsName: "testname",
@@ -143,7 +144,21 @@ describe("Goods", function () {
                     done();
                 });
         });
-
+        after(function(done) {
+            chai.request(server)
+                .get("/goods")
+                .end(function(err, res) {
+                    let result = _.map(res.body, (good) => {
+                        return { _id: good._id};
+                    }  );
+                    expect(res.body.length).to.equal(6);
+                    expect(result).to.include({_id: 131313});
+                    done();
+                });
+        });
+    });
+    
+    describe("POST /goods", ()=> {
         it("should return error message when the goods not add to the database", function (done) {
             let good = {};
             chai.request(server)
@@ -157,7 +172,6 @@ describe("Goods", function () {
 
 
         });
-
     });
 
     describe("PUT /goods/:id/changeLocation/:location", () => {
@@ -171,7 +185,15 @@ describe("Goods", function () {
                     done();
                 });
         });
-
+        it("should return a 404 error for invalid good id", function(done) {
+            chai.request(server)
+                .put("/goods/1100001/changeLocation")
+                .end(function(err, res) {
+                    expect(res).to.have.status(404);
+                    done();
+                });
+        });
+        
     });
 
     describe("PUT /goods/:id/changeDeliveryman/:name/:phoneNumber", () => {
@@ -186,10 +208,19 @@ describe("Goods", function () {
                     done();
                 });
         });
+        it("should return a 404 error for invalid good id to change deliveryman information", function(done) {
+            chai.request(server)
+                .put("/goods/1100001/changeDeliveryman/")
+                .end(function(err, res) {
+                    expect(res).to.have.status(404);
+                    done();
+                });
+        });
     });
+    
 
     describe("DELETE /goods/:id",()=>{
-        it("should return delete confirmation message ", function(done) {
+        it("should return delete confirmation message and database changes ", function(done) {
             chai.request(server)
                 .delete("/goods/10005")
                 .end(function(err, res) {

@@ -53,14 +53,5 @@
     "goodsKind": "expensive",
     "freight": 2120,
     "goodsLocation": "arriving at aim city"
-  },
-  {
-    "deliveryman": {
-      "deliverymanName": "baojie",
-      "phoneNumber": "1111111"
-    },
-    "_id": 10006,
-    "goodsName": "clock",
-    "goodsLocation": "In WIT "
   }
 ]

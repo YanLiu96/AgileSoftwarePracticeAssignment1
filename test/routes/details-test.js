@@ -25,6 +25,7 @@ describe("Details", function () {
                 });
         });
     });
+
     describe("GET /details/:id", () => {
         it("should return details which id is 10001", function (done) {
             chai.request(server)
@@ -39,7 +40,7 @@ describe("Details", function () {
                     done();
                 });
         });
-        it("should return message bad search", function (done) {
+        it("should return message bad search when the id is not existent", function (done) {
             chai.request(server)
                 .get("/details/222222")
                 .end((err, res) => {

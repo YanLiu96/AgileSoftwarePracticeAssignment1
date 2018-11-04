@@ -155,6 +155,21 @@ describe("ShipmentDetails", function () {
                     done();
                 });
         });
+        after(function  (done) {
+            chai.request(server)
+                .get("/shipmentDetails")
+                .end(function(err, res) {
+                    let result = _.map(res.body, (shipmentDetail) => {
+                        return { _id: shipmentDetail._id};
+                    }  );
+                    expect(res.body.length).to.equal(6);
+                    expect(result).to.include({_id: 131313});
+                    done();
+                });
+        });
+    
+    });
+    describe("POST /shipmentDetails", function () {
         it("should return error message when the shipmentDetails not add to the database", function (done) {
             let shipmentDetails = {};
             chai.request(server)

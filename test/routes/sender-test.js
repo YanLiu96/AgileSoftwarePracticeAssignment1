@@ -70,18 +70,19 @@ describe("Senders", function () {
                     expect(res).to.have.status(200);
                     expect(res.body.length).to.equal(5);
                     let result = _.map(res.body, (sender) => {
-                        return {_id: sender._id};
+                        return {_id: sender._id,sendersName:sender.sendersName};
                     });
-                    expect(result).to.include({_id: 10001});
-                    expect(result).to.include({_id: 10002});
-                    expect(result).to.include({_id: 10003});
-                    expect(result).to.include({_id: 10004});
-                    expect(result).to.include({_id: 10005});
+                    expect(result).to.include({_id: 10001,sendersName:"Yan Liu"});
+                    expect(result).to.include({_id: 10002,sendersName:"Yin Wu Jiu Ge"});
+                    expect(result).to.include({_id: 10003,sendersName:"Bao Jie"});
+                    expect(result).to.include({_id: 10004,sendersName:"Hellen"});
+                    expect(result).to.include({_id: 10005,sendersName:"Yan Liu"});
                     done();
                 });
         });
 
     });
+
     describe("GET /senders/:id", () => {
         it("should return sender which id is test_id:10001", function (done) {
             chai.request(server)
@@ -90,12 +91,13 @@ describe("Senders", function () {
                     expect(res).to.have.status(200);
                     expect(res.body.length).to.equal(1);
                     let result = _.map(res.body, (senders) => {
-                        return {_id: senders._id};
+                        return {_id: senders._id,sendersName:senders.sendersName};
                     });
-                    expect(result).to.include({_id: 10001});
+                    expect(result).to.include({_id:10001,sendersName:"Yan Liu"});
                     done();
                 });
         });
+        
         it("should return sender not found when ID not existence", function (done) {
             chai.request(server)
                 .get("/senders/555")
@@ -128,6 +130,21 @@ describe("Senders", function () {
                     done();
                 });
         });
+        after(function (done) {
+            chai.request(server)
+                .get("/senders")
+                .end(function(err, res) {
+                    let result = _.map(res.body, (sender) => {
+                        return { _id: sender._id,sendersName:sender.sendersName};
+                    }  );
+                    expect(res.body.length).to.equal(6);
+                    expect(result).to.include({_id: 131313,sendersName:"testName"});
+                    done();
+                });
+        });
+        
+    });
+    describe("POST /senders", function () {
         it("should return error message when the sender not add to the database", function (done) {
             let sender = {};
             chai.request(server)
@@ -157,7 +174,7 @@ describe("Senders", function () {
                 });
         });
 
-        it("should return bad search when senderName does not existence ", function (done) {
+        it("should return bad search when senderName does not existence (boundary test)", function (done) {
             chai.request(server)
                 .get("/senders/findCount/erere")
                 .end((err, res) => {
@@ -185,15 +202,13 @@ describe("Senders", function () {
                 .get("/senders")
                 .end(function(err, res) {
                     let result = _.map(res.body, (sender) => {
-                        return { _id: sender._id};
+                        return { _id: sender._id,sendersName:sender.sendersName};
                     }  );
                     expect(res.body.length).to.equal(4);
-                    expect(result).to.not.include({_id: 10005});
+                    expect(result).to.not.include({_id: 10005,sendersName:"Yan Liu"});
                     done();
                 });
         });
-
-
     });
     describe("DELETE /senders/:id",()=>{
         it("should return an error message when an invalid ID is given", function(done) {
