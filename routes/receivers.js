@@ -6,10 +6,7 @@ let router = express.Router();
 router.findAllReceivers = (req,res)=>{
     res.setHeader("Content-Type", "application/json");
     receivers.find(function(err, receivers) {
-        if (err)
-            res.send(err);
-        else
-            res.send(JSON.stringify(receivers,null,5));
+        res.send(JSON.stringify(receivers,null,5));
     }).sort({_id:1});
 };
 
@@ -53,11 +50,11 @@ router.deleteReceiver = (req, res) => {
 
 router.changeReceiverPhoneNumber = (req, res) => {
     receivers.findById(req.params.id, function(err,receivers) {
-        if (err)
+        if (err){
             res.json({ message: "Receiver NOT Found!", errmsg : err } );
+        }
         else {
             receivers.receiverPhoneNumber = req.params.phoneNumber;
-
             receivers.save(function (err) {
                 if (err)
                     res.json({ message: "NOT change!", errmsg : err } );
@@ -75,8 +72,9 @@ router.changeReceiverAddress = (req, res) => {
         else {
             receivers.receiverAddress = req.params.address;
             receivers.save(function (err) {
-                if (err)
+                if (err){
                     res.json({ message: "NOT change!", errmsg : err } );
+                }
                 else
                     res.json({ message: "receiver phone number change!", data: receivers });
             });

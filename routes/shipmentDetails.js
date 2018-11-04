@@ -7,8 +7,6 @@ let router = express.Router();
 router.findAllDetails = (req,res)=>{
     res.setHeader("Content-Type", "application/json");
     shipmentDetails.find(function(err, shipmentDetails) {
-        if (err)
-            res.send(err);
         res.send(JSON.stringify(shipmentDetails,null,5));
     });
 };

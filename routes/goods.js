@@ -18,8 +18,6 @@ db.once("open", function () {
 router.findAllGoods = (req,res)=> {
     res.setHeader("Content-Type", "application/json");
     goods.find(function(err, goods) {
-        if (err)
-            res.send(err);
         res.send(JSON.stringify(goods,null,5));
     }).sort({_id:1});
 
@@ -69,7 +67,6 @@ router.changeGoodLocation = (req, res) => {
             goods.goodsLocation = req.params.location;
             goods.save(function (err) {
                 if (err){
-                    res.status(404);
                     res.json({ message: "Good Location NOT Change!", errmsg : err } );
                 }
                 else
@@ -90,7 +87,6 @@ router.changeDeliveryman = (req, res) => {
             goods.deliveryman.phoneNumber = req.params.phoneNumber;
             goods.save(function (err) {
                 if (err){
-                    res.status(404);
                     res.json({ message: "NOT change!", errmsg : err } );
                 }
                 else
