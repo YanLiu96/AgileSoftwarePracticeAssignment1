@@ -172,4 +172,52 @@ describe("Super Test:Goods", function () {
 
         });
     });
+
+    describe("PUT /goods/:id/changeLocation/:location", () => {
+        it("should change th good location to testLocation", function (done) {
+            request(app)
+                .put("/goods/10001/changeLocation/testLocation")
+                .set('Accept', 'application/x-www-form-urlencoded')
+                .end(function (err, res) {
+                    expect(200);
+                    let good = res.body.data;
+                    expect(good).to.include({goodsLocation: "testLocation"});
+                    done();
+                });
+        });
+        it("should return a 404 error for invalid good id", function(done) {
+            request(app)
+                .put("/goods/1100001/changeLocation")
+                .set('Accept', 'application/x-www-form-urlencoded')
+                .end(function(err, res) {
+                    expect(404);
+                    done();
+                });
+        });
+        
+    });
+
+    describe("PUT /goods/:id/changeDeliveryman/:name/:phoneNumber", () => {
+        it("should change the name and phone number of delivery man ", function (done) {
+            request(app)
+                .put("/goods/10001/changeDeliveryman/testName/666666666666")
+                .set('Accept', 'application/x-www-form-urlencoded')
+                .end(function (err, res) {
+                    expect(200);
+                    let good = res.body.data;
+                    expect(good.deliveryman).to.include({deliverymanName:"testName",phoneNumber:"666666666666"});
+                    expect(res.body).to.have.property("message").equal("Delivery man name and phone number change!" );
+                    done();
+                });
+        });
+        it("should return a 404 error for invalid good id to change deliveryman information", function(done) {
+            request(app)
+                .put("/goods/1100001/changeDeliveryman/")
+                .set('Accept', 'application/x-www-form-urlencoded')
+                .end(function(err, res) {
+                    expect(404);
+                    done();
+                });
+        });
+    });
 });
