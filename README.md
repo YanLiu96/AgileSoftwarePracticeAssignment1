@@ -3,16 +3,17 @@
 ## 20082245
 ### 1. Tools and  technique
 ##### This project uses git to control version.The structure is :
-
+![image](https://github.com/YanLiu96/AgileSoftwarePracticeAssignment1/tree/master/picturesForReadme/gitStructure.gif)
 ##### It uses Mocha, Chai, superTest,etc. to test the resource code. All of the test code are stored in the transportation/test/routes folder
 ##### It uses mlab database to store data and for test.
 ##### It uses ESLint to analyse code quality for potential errors and fix the errors.
 ##### It uses GCOV to test the code coverage and generate coverage report at transportation/coverage/lcov-report/index.html.
 
 
+
 ### 2. Some Score point
 ##### It contains 54 test cases:
-
+![image](https://github.com/YanLiu96/AgileSoftwarePracticeAssignment1/tree/master/picturesForReadme/testPassing.gif)
 ##### I use gitignore when the git was initialized.
 ##### I use Git – Branch-Edit-Merge workflow when i write test code or fix errors.
 ##### The silent principle is realized.
@@ -106,7 +107,7 @@ describe("GET /goods", () => {
 
 #### 4. Test Details(some typical test)
 ##### The routes-test can be divided into mainly five types. The error test can be divided into 404 error and  no found error.
-##### Get test
+##### ①Get test
 ###### I test get method by test the length of return whether equal to the size in database.
 ###### I also test the return result whether includes the property and value it should has. For example: 
 ```javascript
@@ -121,13 +122,13 @@ expect(res.body.length).to.equal(5);
                     expect(result).to.include({_id: 10005,goodsName:"Car",goodsKind:"expensive"});
                     done();
 ```
-##### Get/ID test
+##### ②Get/ID test
 ###### I test get one method by test the return req.body's length is one and whether include property and value it should has.
 
-##### Post test
+##### ③Post test
 ##### I test post method by create a new data and send to post.Then check whether it return message that add successfully.I also use after hook to test the size od database which should add one.
 
-#### Put test 
+#### ④Put test 
 ##### I test put method by change the value of one property,then check it whether be updated in the database.
 ##### I also test 404 error.For example
 ```javascript
@@ -140,9 +141,9 @@ expect(res.body.length).to.equal(5);
                 });
         });
 ```   
-#### Delete test
+#### ⑤Delete test
 ##### I test delete method by delete one by it's ID then use after block to search it in the database.It should not include.
 
 #### More in-depth details you can check out my test code in test/routes folder.
 
-##Thank you for reading my assignment1.
+## Thank you for reading my assignment 1.
