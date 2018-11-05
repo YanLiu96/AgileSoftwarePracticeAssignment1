@@ -1,8 +1,8 @@
-var request = require('supertest');
-let chai = require('chai');
+var request = require("supertest");
+let chai = require("chai");
 let _ = require("lodash" );
 let expect = chai.expect;
-var app = require('../../app');
+var app = require("../../app");
 let good = require("../../models/goods");
 
 describe("Super Test:Goods", function () {
@@ -75,7 +75,7 @@ describe("Super Test:Goods", function () {
         it("should return all the goods in an array", function (done) {
             request(app)
                 .get("/goods")
-                .set('Accept', 'application/json')
+                .set("Accept", "application/json")
                 .end((err, res) => {
                     expect(200);
                     expect(res.body.length).to.equal(5);
@@ -96,7 +96,7 @@ describe("Super Test:Goods", function () {
         it("should return good which id is test_id:10001", function (done) {
             request(app)
                 .get("/goods/10001")
-                .set('Accept', 'application/json')
+                .set("Accept", "application/json")
                 .end((err, res) => {
                     expect(200);
                     expect(res.body.length).to.equal(1);
@@ -110,7 +110,7 @@ describe("Super Test:Goods", function () {
         it("should return good not found when ID not existence", function (done) {
             request(app)
                 .get("/goods/555")
-                .set('Accept', 'application/json')
+                .set("Accept", "application/json")
                 .end((err, res) => {
                     expect(200);
                     expect(res.body.length).to.equal(undefined);
@@ -123,7 +123,7 @@ describe("Super Test:Goods", function () {
         it("should return confirmation message and database changes", function (done) {
             request(app)
                 .post("/goods")
-                .set('Accept', 'application/x-www-form-urlencoded')
+                .set("Accept", "application/x-www-form-urlencoded")
                 .send({
                     _id: "131313",
                     goodsName: "testname",
@@ -138,7 +138,7 @@ describe("Super Test:Goods", function () {
                 })
                 .expect(200)
                 .end(function (err, res) {
-                    expect('Content-Type', /json/)
+                    expect("Content-Type", /json/);
                     expect(res.body).to.have.property("message").equal("Good Successfully Added!");
                     done();
                 });
@@ -146,7 +146,7 @@ describe("Super Test:Goods", function () {
         after(function(done) {
             request(app)
                 .get("/goods")
-                .set('Accept', 'application/json')
+                .set("Accept", "application/json")
                 .end(function(err, res) {
                     let result = _.map(res.body, (good) => {
                         return { _id: good._id};
@@ -177,7 +177,7 @@ describe("Super Test:Goods", function () {
         it("should change th good location to testLocation", function (done) {
             request(app)
                 .put("/goods/10001/changeLocation/testLocation")
-                .set('Accept', 'application/x-www-form-urlencoded')
+                .set("Accept", "application/x-www-form-urlencoded")
                 .end(function (err, res) {
                     expect(200);
                     let good = res.body.data;
@@ -188,7 +188,7 @@ describe("Super Test:Goods", function () {
         it("should return a 404 error for invalid good id", function(done) {
             request(app)
                 .put("/goods/1100001/changeLocation")
-                .set('Accept', 'application/x-www-form-urlencoded')
+                .set("Accept", "application/x-www-form-urlencoded")
                 .end(function(err, res) {
                     expect(404);
                     done();
@@ -201,7 +201,7 @@ describe("Super Test:Goods", function () {
         it("should change the name and phone number of delivery man ", function (done) {
             request(app)
                 .put("/goods/10001/changeDeliveryman/testName/666666666666")
-                .set('Accept', 'application/x-www-form-urlencoded')
+                .set("Accept", "application/x-www-form-urlencoded")
                 .end(function (err, res) {
                     expect(200);
                     let good = res.body.data;
@@ -213,7 +213,7 @@ describe("Super Test:Goods", function () {
         it("should return a 404 error for invalid good id to change deliveryman information", function(done) {
             request(app)
                 .put("/goods/1100001/changeDeliveryman/")
-                .set('Accept', 'application/x-www-form-urlencoded')
+                .set("Accept", "application/x-www-form-urlencoded")
                 .end(function(err, res) {
                     expect(404);
                     done();
