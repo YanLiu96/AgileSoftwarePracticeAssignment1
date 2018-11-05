@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="109015f6-856f-411a-9b45-ee88ea73fc04" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2018-10-25T030028.200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2018-10-25T030047.200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2018-10-25T030108.200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/2018-10-25T030155.200.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/goods.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/goods.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/routes/goods-test.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/routes/goods-test.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -118,42 +112,46 @@
     <session id="1258966951">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="20" />
+          <entry key="project.closed" value="22" />
           <entry key="project.open.time.0" value="3" />
           <entry key="project.open.time.1" value="3" />
           <entry key="project.open.time.3" value="2" />
-          <entry key="project.open.time.4" value="6" />
+          <entry key="project.open.time.4" value="8" />
           <entry key="project.open.time.5" value="5" />
           <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="20" />
+          <entry key="project.opened" value="22" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="gitignore" value="1" />
-          <entry key="js" value="87" />
+          <entry key="js" value="91" />
           <entry key="json" value="5" />
+          <entry key="md" value="1" />
           <entry key="www" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="JSON" value="5" />
-          <entry key="JavaScript" value="79" />
+          <entry key="JavaScript" value="83" />
+          <entry key="Markdown" value="1" />
           <entry key="PLAIN_TEXT" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gitignore" value="1" />
-          <entry key="js" value="1595" />
+          <entry key="js" value="1598" />
           <entry key="json" value="1" />
+          <entry key="md" value="1355" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JSON" value="1" />
-          <entry key="JavaScript" value="1568" />
+          <entry key="JavaScript" value="1571" />
+          <entry key="Markdown" value="1355" />
           <entry key="PLAIN_TEXT" value="28" />
         </counts>
       </usages-collector>
@@ -185,47 +183,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/senders.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="36" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/shipmentDetails.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" selection-start-line="14" selection-end-line="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/routes/shipmentDetails-test.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="205" column="7" selection-start-line="205" selection-start-column="7" selection-end-line="205" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/senders.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="810">
-              <caret line="54" selection-start-line="54" selection-end-line="54" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/routes/goods-test.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
-              <caret line="210" column="19" selection-start-line="210" selection-start-column="19" selection-end-line="210" selection-end-column="19" />
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="1493">
+                <caret line="147" column="39" selection-start-line="147" selection-start-column="39" selection-end-line="147" selection-end-column="39" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -233,17 +198,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/goods.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
+            <state relative-caret-position="210">
+              <caret line="20" column="47" selection-start-line="20" selection-start-column="47" selection-end-line="20" selection-end-column="47" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app.js">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/routes/goods-test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-396">
-              <caret line="34" column="73" lean-forward="true" selection-start-line="34" selection-start-column="73" selection-end-line="34" selection-end-column="73" />
+            <state relative-caret-position="-602">
+              <caret line="187" column="1" selection-start-line="187" selection-start-column="1" selection-end-line="195" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -251,8 +216,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/routes/receivers-test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2610">
-              <caret line="174" column="34" selection-start-line="174" selection-start-column="34" selection-end-line="174" selection-end-column="34" />
+            <state relative-caret-position="530">
+              <caret line="205" column="34" selection-start-line="205" selection-start-column="34" selection-end-line="205" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -260,17 +225,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/routes/sender-test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2955">
-              <caret line="197" column="40" selection-start-line="197" selection-start-column="40" selection-end-line="197" selection-end-column="40" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/routes/details-test.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="36" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
+            <state relative-caret-position="1983">
+              <caret line="212" column="40" selection-start-line="212" selection-start-column="40" selection-end-line="212" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -287,9 +243,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="dummy://restClient/response7.txt" root0="SKIP_INSPECTION" />
-  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -305,7 +258,6 @@
         <option value="$PROJECT_DIR$/routes/details.js" />
         <option value="$PROJECT_DIR$/routes/fuzzySearch.js" />
         <option value="$PROJECT_DIR$/routes/shipmentDetails.js" />
-        <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/test/routes/fsf.js" />
         <option value="$PROJECT_DIR$/test/routes/sada.js" />
         <option value="$PROJECT_DIR$/test/routes/sendersst.js" />
@@ -315,7 +267,6 @@
         <option value="$PROJECT_DIR$/routes/senders.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/routes/receivers.js" />
-        <option value="$PROJECT_DIR$/routes/goods.js" />
         <option value="$PROJECT_DIR$/models/goods.js" />
         <option value="$PROJECT_DIR$/models/receivers.js" />
         <option value="$PROJECT_DIR$/models/shipmentDetails.js" />
@@ -324,6 +275,9 @@
         <option value="$PROJECT_DIR$/test/routes/goods-test.js" />
         <option value="$PROJECT_DIR$/test/routes/receivers-test.js" />
         <option value="$PROJECT_DIR$/test/routes/shipmentDetails-test.js" />
+        <option value="$PROJECT_DIR$/routes/goods.js" />
+        <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -350,9 +304,10 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
+    <option name="x" value="31" />
     <option name="y" value="23" />
     <option name="width" value="1440" />
-    <option name="height" value="811" />
+    <option name="height" value="810" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -360,6 +315,17 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="transportation" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -397,17 +363,6 @@
               <item name="transportation" type="b2602c69:ProjectViewProjectNode" />
               <item name="transportation" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope">
-        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
-          <expand>
-            <path>
-              <item name="transportation" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
             </path>
           </expand>
           <select />
@@ -2275,11 +2230,13 @@
       <workItem from="1541256255790" duration="1133000" />
       <workItem from="1541274089970" duration="419000" />
       <workItem from="1541366700273" duration="149000" />
+      <workItem from="1541438447511" duration="331000" />
+      <workItem from="1541450283243" duration="1491000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="182767000" />
+    <option name="totallyTimeSpent" value="184589000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -2291,14 +2248,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="811" extended-state="0" />
+    <frame x="31" y="23" width="1440" height="810" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" sideWeight="0.5006954" side_tool="true" weight="0.17547569" />
-      <window_info id="npm" order="1" sideWeight="0.18780488" side_tool="true" visible="true" weight="0.205074" />
-      <window_info active="true" content_ui="combo" id="Project" order="2" sideWeight="0.8121951" visible="true" weight="0.205074" />
+      <window_info id="npm" order="1" sideWeight="0.1931624" side_tool="true" visible="true" weight="0.205074" />
+      <window_info content_ui="combo" id="Project" order="2" sideWeight="0.8068376" visible="true" weight="0.205074" />
       <window_info id="Structure" order="3" sideWeight="0.50344825" side_tool="true" weight="0.14587738" />
-      <window_info anchor="bottom" id="Terminal" order="0" weight="0.24061196" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="0" visible="true" weight="0.18523677" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="2" weight="0.32702702" />
       <window_info anchor="bottom" id="Docker" order="3" show_stripe_button="false" />
@@ -2543,24 +2500,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/test/routes/shipmentDetails-test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3300">
+          <caret line="220" column="7" selection-start-line="220" selection-start-column="7" selection-end-line="220" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/routes/senders.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="810">
-          <caret line="54" selection-start-line="54" selection-end-line="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/routes/receivers-test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2610">
-          <caret line="174" column="34" selection-start-line="174" selection-start-column="34" selection-end-line="174" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/routes/sender-test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2955">
-          <caret line="197" column="40" selection-start-line="197" selection-start-column="40" selection-end-line="197" selection-end-column="40" />
+        <state relative-caret-position="780">
+          <caret line="52" selection-start-line="52" selection-end-line="52" />
         </state>
       </provider>
     </entry>
@@ -2571,31 +2521,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/routes/shipmentDetails-test.js">
+    <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="205" column="7" selection-start-line="205" selection-start-column="7" selection-end-line="205" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/routes/goods-test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="210" column="19" selection-start-line="210" selection-start-column="19" selection-end-line="210" selection-end-column="19" />
+        <state relative-caret-position="17">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/goods.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        <state relative-caret-position="210">
+          <caret line="20" column="47" selection-start-line="20" selection-start-column="47" selection-end-line="20" selection-end-column="47" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
+    <entry file="file://$PROJECT_DIR$/test/routes/goods-test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-396">
-          <caret line="34" column="73" lean-forward="true" selection-start-line="34" selection-start-column="73" selection-end-line="34" selection-end-column="73" />
+        <state relative-caret-position="-602">
+          <caret line="187" column="1" selection-start-line="187" selection-start-column="1" selection-end-line="195" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/routes/receivers-test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="530">
+          <caret line="205" column="34" selection-start-line="205" selection-start-column="34" selection-end-line="205" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/routes/sender-test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1983">
+          <caret line="212" column="40" selection-start-line="212" selection-start-column="40" selection-end-line="212" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="1493">
+            <caret line="147" column="39" selection-start-line="147" selection-start-column="39" selection-end-line="147" selection-end-column="39" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
