@@ -5,7 +5,7 @@ let expect = chai.expect;
 var app = require('../../app');
 let good = require("../../models/goods");
 
-describe("Goods", function () {
+describe("Super Test:Goods", function () {
     beforeEach((done) => { //Before each test we empty the database
         good.deleteMany({}, (err) => {
         });
@@ -75,6 +75,7 @@ describe("Goods", function () {
         it("should return all the goods in an array", function (done) {
             request(app)
                 .get("/goods")
+                .set('Accept', 'application/json')
                 .end((err, res) => {
                     expect(200);
                     expect(res.body.length).to.equal(5);
@@ -90,5 +91,32 @@ describe("Goods", function () {
                 });
         });
 
+    });
+    describe("GET /goods/:id", () => {
+        it("should return good which id is test_id:10001", function (done) {
+            request(app)
+                .get("/goods/10001")
+                .set('Accept', 'application/json')
+                .end((err, res) => {
+                    expect(200);
+                    expect(res.body.length).to.equal(1);
+                    let result = _.map(res.body, (goods) => {
+                        return {_id: goods._id,goodsName:goods.goodsName,goodsKind:goods.goodsKind};
+                    });
+                    expect(result).to.include({_id: 10001,goodsName:"Iphone X",goodsKind:"expensive"});
+                    done();
+                });
+        });
+        it("should return good not found when ID not existence", function (done) {
+            request(app)
+                .get("/goods/555")
+                .set('Accept', 'application/json')
+                .end((err, res) => {
+                    expect(200);
+                    expect(res.body.length).to.equal(undefined);
+                    expect(res.body).to.have.property("message").equal("Good NOT Found!" );
+                    done();
+                });
+        });
     });
 });
