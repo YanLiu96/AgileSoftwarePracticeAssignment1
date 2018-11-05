@@ -1,6 +1,7 @@
 # Agile Software Practice Assignment1
 ## Yan Liu 
 ## 20082245
+## GitHun url is :https://github.com/YanLiu96/AgileSoftwarePracticeAssignment1
 ### 1. Tools and  technique
 ##### This project uses git to control version.The structure is :
 
