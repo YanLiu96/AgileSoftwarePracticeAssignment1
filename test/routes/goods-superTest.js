@@ -220,4 +220,39 @@ describe("Super Test:Goods", function () {
                 });
         });
     });
+    describe("DELETE /goods/:id",()=>{
+        it("should return delete confirmation message and database changes ", function(done) {
+            request(app)
+                .delete("/goods/10005")
+                .end(function(err, res) {
+                    expect(200);
+                    expect(res.body).to.have.property("message").equal("Good Successfully Deleted!" );
+                    done();
+                });
+        });
+        after(function(done) {
+            request(app)
+                .get("/goods")
+                .end(function(err, res) {
+                    let result = _.map(res.body, (good) => {
+                        return { _id: good._id};
+                    }  );
+                    expect(res.body.length).to.equal(4);
+                    expect(result).to.not.include({_id: 10005});
+                    done();
+                });
+        });
+
+    });
+    describe("DELETE /goods/:id",()=>{
+        it("should return an error message when an invalid ID is given", function(done) {
+            request(app)
+                .delete("/goods/dsdsd")
+                .end( (err, res) => {
+                    expect(200);
+                    expect(res.body.message).to.include("GOOD NOT DELETED!" ) ;
+                    done();
+                });
+        });
+    });
 });
