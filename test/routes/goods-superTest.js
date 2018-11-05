@@ -119,4 +119,57 @@ describe("Super Test:Goods", function () {
                 });
         });
     });
+    describe("POST /goods", ()=> {
+        it("should return confirmation message and database changes", function (done) {
+            request(app)
+                .post("/goods")
+                .set('Accept', 'application/x-www-form-urlencoded')
+                .send({
+                    _id: "131313",
+                    goodsName: "testname",
+                    goodsKind: "testKind",
+                    freight:111,
+                    deliveryman: {
+                        deliverymanName:"liuyan",
+                        phoneNumber:"110",
+                    },
+                    goodsLocation: "testlocation",
+    
+                })
+                .expect(200)
+                .end(function (err, res) {
+                    expect('Content-Type', /json/)
+                    expect(res.body).to.have.property("message").equal("Good Successfully Added!");
+                    done();
+                });
+        });
+        after(function(done) {
+            request(app)
+                .get("/goods")
+                .set('Accept', 'application/json')
+                .end(function(err, res) {
+                    let result = _.map(res.body, (good) => {
+                        return { _id: good._id};
+                    }  );
+                    expect(res.body.length).to.equal(6);
+                    expect(result).to.include({_id: 131313});
+                    done();
+                });
+        });
+    });
+    describe("POST /goods", ()=> {
+        it("should return error message when the goods not add to the database", function (done) {
+            let good = {};
+            request(app)
+                .post("/goods")
+                .send(good)
+                .end(function (err, res) {
+                    expect(200);
+                    expect(res.body).to.have.property("message").equal("Good NOT Added!");
+                    done();
+                });
+
+
+        });
+    });
 });
