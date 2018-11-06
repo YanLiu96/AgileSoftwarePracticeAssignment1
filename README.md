@@ -1,9 +1,9 @@
 # Agile Software Practice Assignment1
 ## Yan Liu 
 ## 20082245
-## GitHun url is :https://github.com/YanLiu96/AgileSoftwarePracticeAssignment1
+## GitHub url is :https://github.com/YanLiu96/AgileSoftwarePracticeAssignment1
 ### 1. Tools and  technique
-##### This project uses git to control version.The structure is :
+##### This project uses git to control version.The structure is (If you can't load it,click on the image to view):
 ![image](https://github.com/YanLiu96/AgileSoftwarePracticeAssignment1/tree/master/picturesForReadme/gitStructure.png)
 ##### It uses Mocha, Chai, superTest,etc. to test the resource code. All of the test code are stored in the transportation/test/routes folder
 ##### It uses mlab database to store data and for test.
