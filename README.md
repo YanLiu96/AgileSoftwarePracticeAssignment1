@@ -4,7 +4,7 @@
 ## GitHun url is :https://github.com/YanLiu96/AgileSoftwarePracticeAssignment1
 ### 1. Tools and  technique
 ##### This project uses git to control version.The structure is :
-![image](https://github.com/YanLiu96/AgileSoftwarePracticeAssignment1/tree/master/picturesForReadme/gitStructure.gif)
+![image](https://github.com/YanLiu96/AgileSoftwarePracticeAssignment1/tree/master/picturesForReadme/gitStructure.png)
 ##### It uses Mocha, Chai, superTest,etc. to test the resource code. All of the test code are stored in the transportation/test/routes folder
 ##### It uses mlab database to store data and for test.
 ##### It uses ESLint to analyse code quality for potential errors and fix the errors.
@@ -14,7 +14,9 @@
 
 ### 2. Some Score point
 ##### It contains 54 test cases:
-![image](https://github.com/YanLiu96/AgileSoftwarePracticeAssignment1/tree/master/picturesForReadme/testPassing.gif)
+![image1](https://github.com/YanLiu96/AgileSoftwarePracticeAssignment1/tree/master/picturesForReadme/passing1.png)
+![image2](https://github.com/YanLiu96/AgileSoftwarePracticeAssignment1/tree/master/picturesForReadme/passing2.png)
+![image3](https://github.com/YanLiu96/AgileSoftwarePracticeAssignment1/tree/master/picturesForReadme/passing3.png)
 ##### I use gitignore when the git was initialized.
 ##### I use Git – Branch-Edit-Merge workflow when i write test code or fix errors.
 ##### The silent principle is realized.
