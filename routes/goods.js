@@ -45,6 +45,7 @@ router.addGood = (req, res) => {
     good.deliveryman = req.body.deliveryman;
     good.freight= req.body.freight;
     good.goodsKind =req.body.goodsKind;
+    good.deliverymanUpvotes = req.body.deliverymanUpvotes;
     good.goodsLocation =req.body.goodsLocation;
     good.save(function(err) {
         if (err)
@@ -62,7 +63,26 @@ router.deleteGood = (req, res) => {
             res.json({ message: "Good Successfully Deleted!"});
     });
 };
-
+router.editGood = (req,res)=>{
+    goods.findById(req.params.id, function(err,good) {
+        if (err)
+            res.json({ message: "Good NOT Found!", errmsg : err } );
+        else {
+            good.goodsKind = req.body.goodsKind;
+            good.freight = req.body.freight;
+            good.goodsName = req.body.goodsName;
+            good.deliveryman=req.body.deliveryman;
+            good.deliverymanUpvotes =req.body.deliverymanUpvotes;
+            good.goodsLocation = req.body.goodsLocation;
+            good.save(function (err) {
+                if (err)
+                    res.json({ message: "Good Location NOT Change!", errmsg : err } );
+                else
+                    res.json({ message: "Good Location Successfully Change!", data: goods });
+            });
+        }
+    });
+};
 router.changeGoodLocation = (req, res) => {
     goods.findById(req.params.id, function(err,goods) {
         if (err)
