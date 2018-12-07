@@ -4,6 +4,7 @@ let server = require("../../bin/www");
 let receiver = require("../../models/receivers");
 let expect = chai.expect;
 chai.use(require("chai-things"));
+let mongoose = require("mongoose");
 chai.use(chaiHttp);
 let _ = require("lodash" );
 

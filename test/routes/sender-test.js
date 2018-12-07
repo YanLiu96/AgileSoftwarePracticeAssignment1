@@ -2,6 +2,7 @@ let chai = require("chai");
 let chaiHttp = require("chai-http");
 let server = require("../../bin/www");
 let sender = require("../../models/senders");
+let mongoose = require("mongoose");
 let expect = chai.expect;
 chai.use(require("chai-things"));
 chai.use(chaiHttp);
@@ -14,7 +15,7 @@ describe("Senders", function () {
         //add the test case to test
         sender.insertMany([
             {
-                _id: 10001,
+                _id:mongoose.Types.ObjectId('5be1690731a5c256ad574fb0'),
                 senderMethod: "UPS",
                 sendersName: "Yan Liu",
                 senderPhoneNumber: "08338401313",
@@ -23,7 +24,7 @@ describe("Senders", function () {
                 sendDate: "2018-3-19"
             },
             {
-                _id: 10002,
+                _id:mongoose.Types.ObjectId('5be1690731a5c256ad574fb1'),
                 senderMethod: "FedEx",
                 sendersName: "Yin Wu Jiu Ge",
                 senderPhoneNumber: "798668668",
@@ -32,7 +33,7 @@ describe("Senders", function () {
                 sendDate: "2018-3-20"
             },
             {
-                _id: 10003,
+                _id:mongoose.Types.ObjectId('5be1690731a5c256ad574fb2'),
                 senderMethod: "EMS",
                 sendersName: "Bao Jie",
                 senderPhoneNumber: "110",
@@ -41,7 +42,7 @@ describe("Senders", function () {
                 sentDate: "2018-9-12"
             },
             {
-                _id: 10004,
+                _id:mongoose.Types.ObjectId('5be1690731a5c256ad574fb3'),
                 senderMethod: "TNT ",
                 sendersName: "Hellen",
                 senderPhoneNumber: "11012121",
@@ -50,7 +51,7 @@ describe("Senders", function () {
                 sendDate: "2018-7-5"
             },
             {
-                _id: 10005,
+                _id:mongoose.Types.ObjectId('5be1690731a5c256ad574fb4'),
                 senderMethod: "UPS",
                 sendersName: "Yan Liu",
                 senderPhoneNumber: "15261820009",
@@ -70,13 +71,13 @@ describe("Senders", function () {
                     expect(res).to.have.status(200);
                     expect(res.body.length).to.equal(5);
                     let result = _.map(res.body, (sender) => {
-                        return {_id: sender._id,sendersName:sender.sendersName};
+                        return {sendersName:sender.sendersName};
                     });
-                    expect(result).to.include({_id: 10001,sendersName:"Yan Liu"});
-                    expect(result).to.include({_id: 10002,sendersName:"Yin Wu Jiu Ge"});
-                    expect(result).to.include({_id: 10003,sendersName:"Bao Jie"});
-                    expect(result).to.include({_id: 10004,sendersName:"Hellen"});
-                    expect(result).to.include({_id: 10005,sendersName:"Yan Liu"});
+                    expect(result).to.include({sendersName:"Yan Liu"});
+                    expect(result).to.include({sendersName:"Yin Wu Jiu Ge"});
+                    expect(result).to.include({sendersName:"Bao Jie"});
+                    expect(result).to.include({sendersName:"Hellen"});
+                    expect(result).to.include({sendersName:"Yan Liu"});
                     done();
                 });
         });
@@ -86,21 +87,21 @@ describe("Senders", function () {
     describe("GET /senders/:id", () => {
         it("should return sender which id is test_id:10001", function (done) {
             chai.request(server)
-                .get("/senders/10001")
+                .get("/senders/5be1690731a5c256ad574fb0")
                 .end((err, res) => {
                     expect(res).to.have.status(200);
                     expect(res.body.length).to.equal(1);
                     let result = _.map(res.body, (senders) => {
-                        return {_id: senders._id,sendersName:senders.sendersName};
+                        return {sendersName:senders.sendersName};
                     });
-                    expect(result).to.include({_id:10001,sendersName:"Yan Liu"});
+                    expect(result).to.include({sendersName:"Yan Liu"});
                     done();
                 });
         });
-        
+
         it("should return sender not found when ID not existence", function (done) {
             chai.request(server)
-                .get("/senders/555")
+                .get("/senders/5be1690731a5c256ad574fb9")
                 .end((err, res) => {
                     expect(res).to.have.status(200);
                     expect(res.body.length).to.equal(undefined);
@@ -113,7 +114,7 @@ describe("Senders", function () {
     describe("POST /senders", function () {
         it("should return confirmation message", function (done) {
             let sender = {
-                _id: "131313",
+                _id:mongoose.Types.ObjectId('5be1690731a5c256ad574fb6'),
                 sendersName: "testName",
                 senderMethod:"EMS",
                 senderPhoneNumber: "test12334",
@@ -135,27 +136,14 @@ describe("Senders", function () {
                 .get("/senders")
                 .end(function(err, res) {
                     let result = _.map(res.body, (sender) => {
-                        return { _id: sender._id,sendersName:sender.sendersName};
+                        return {sendersName:sender.sendersName};
                     }  );
                     expect(res.body.length).to.equal(6);
-                    expect(result).to.include({_id: 131313,sendersName:"testName"});
+                    expect(result).to.include({sendersName:"testName"});
                     done();
                 });
         });
-        
-    });
-    describe("POST /senders", function () {
-        it("should return error message when the sender not add to the database", function (done) {
-            let sender = {};
-            chai.request(server)
-                .post("/senders")
-                .send(sender)
-                .end(function (err, res) {
-                    expect(res).to.have.status(200);
-                    expect(res.body).to.have.property("message").equal("Sender NOT Added!");
-                    done();
-                });
-        });
+
     });
 
     describe("GET /senders/findCount/:senderName", () => {
@@ -190,7 +178,7 @@ describe("Senders", function () {
     describe("DELETE /senders/:id",()=>{
         it("should return delete confirmation message ", function(done) {
             chai.request(server)
-                .delete("/senders/10005")
+                .delete("/senders/5be1690731a5c256ad574fb4")
                 .end(function(err, res) {
                     expect(res).to.have.status(200);
                     expect(res.body).to.have.property("message").equal("Sender Successfully Deleted!" );
@@ -202,10 +190,10 @@ describe("Senders", function () {
                 .get("/senders")
                 .end(function(err, res) {
                     let result = _.map(res.body, (sender) => {
-                        return { _id: sender._id,sendersName:sender.sendersName};
+                        return { _id:sender._id};
                     }  );
                     expect(res.body.length).to.equal(4);
-                    expect(result).to.not.include({_id: 10005,sendersName:"Yan Liu"});
+                    expect(result).to.not.include({_id: "5be1690731a5c256ad574fb4"});
                     done();
                 });
         });

@@ -192,7 +192,7 @@ describe("Goods", function () {
                         return { _id: good._id};
                     }  );
                     expect(res.body.length).to.equal(4);
-                    expect(result).to.not.include({_id: 10005});
+                    expect(result).to.not.include({_id: "5be1690731a5c256ad574fb4"});
                     done();
                 });
         });
