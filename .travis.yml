@@ -3,9 +3,9 @@ language: node_js
 node_js:
 - stable
 script:
-- npm run coverage
+- sudo npm run coverage
 after_success:
-- npm run publish-coverage
+- sudo npm run publish-coverage
 branches:
    only: development
 notifications:
