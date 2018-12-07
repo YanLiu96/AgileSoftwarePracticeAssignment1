@@ -89,18 +89,18 @@ router.incrementUpvotes = (req, res) => {
 
     goods.findById(req.params.id, function(err,goods) {
         if (err)
-            res.json({ message: 'Good NOT Found!', errmsg : err } );
+            res.json({ message: "Good NOT Found!", errmsg : err } );
         else {
             goods.deliverymanUpvotes += 1;
             goods.save(function (err) {
                 if (err)
-                    res.json({ message: 'Deliveryman NOT UpVoted!', errmsg : err } );
+                    res.json({ message: "Deliveryman NOT UpVoted!", errmsg : err } );
                 else
-                    res.json({ message: 'Deliveryman Successfully Upvoted!', data: goods });
+                    res.json({ message: "Deliveryman Successfully Upvoted!", data: goods });
             });
         }
     });
-}
+};
 
 router.findTotalVotes = (req, res) => {
 
@@ -110,7 +110,7 @@ router.findTotalVotes = (req, res) => {
         else
             res.json({ totalvotes : getTotalVotes(goods) });
     });
-}
+};
 /*
 router.changeDeliveryman = (req, res) => {
     goods.findById(req.params.id, function(err,goods) {

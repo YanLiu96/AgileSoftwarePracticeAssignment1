@@ -27,7 +27,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 
-app.get('/goods/findTotalVotes', goods.findTotalVotes);
+app.get("/goods/findTotalVotes", goods.findTotalVotes);
 app.get("/goods",goods.findAllGoods);
 app.get("/goods/:id",goods.findOneGood);
 app.post("/goods",goods.addGood);

@@ -15,7 +15,7 @@ describe("Goods", function () {
         //add the test case to test
         good.insertMany([
             {
-                _id:mongoose.Types.ObjectId('5be1690731a5c256ad574fb0'),
+                _id:mongoose.Types.ObjectId("5be1690731a5c256ad574fb0"),
                 goodsName: "Iphone X",
                 goodsKind: "expensive",
                 freight: 12.5,
@@ -24,7 +24,7 @@ describe("Goods", function () {
                 goodsLocation: "at waterford"
             },
             {
-                _id:mongoose.Types.ObjectId('5be1690731a5c256ad574fb1'),
+                _id:mongoose.Types.ObjectId("5be1690731a5c256ad574fb1"),
                 goodsName: "Mac Pro",
                 goodsKind: "expensive",
                 freight: 28.4,
@@ -33,7 +33,7 @@ describe("Goods", function () {
                 goodsLocation: "In the transfer station"
             },
             {
-                _id:mongoose.Types.ObjectId('5be1690731a5c256ad574fb2'),
+                _id:mongoose.Types.ObjectId("5be1690731a5c256ad574fb2"),
                 goodsName: "AJ 1",
                 goodsKind: "soft",
                 freight: 12.6,
@@ -42,7 +42,7 @@ describe("Goods", function () {
                 goodsLocation: "In the pass station"
             },
             {
-                _id:mongoose.Types.ObjectId('5be1690731a5c256ad574fb3'),
+                _id:mongoose.Types.ObjectId("5be1690731a5c256ad574fb3"),
                 goodsName: "Superme",
                 goodsKind: "clothes",
                 freight: 12.8,
@@ -51,7 +51,7 @@ describe("Goods", function () {
                 goodsLocation: "still not send"
             },
             {
-                _id:mongoose.Types.ObjectId('5be1690731a5c256ad574fb4'),
+                _id:mongoose.Types.ObjectId("5be1690731a5c256ad574fb4"),
                 goodsName: "Car",
                 goodsKind: "expensive",
                 freight: 21,

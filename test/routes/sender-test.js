@@ -15,7 +15,7 @@ describe("Senders", function () {
         //add the test case to test
         sender.insertMany([
             {
-                _id:mongoose.Types.ObjectId('5be1690731a5c256ad574fb0'),
+                _id:mongoose.Types.ObjectId("5be1690731a5c256ad574fb0"),
                 senderMethod: "UPS",
                 sendersName: "Yan Liu",
                 senderPhoneNumber: "08338401313",
@@ -24,7 +24,7 @@ describe("Senders", function () {
                 sendDate: "2018-3-19"
             },
             {
-                _id:mongoose.Types.ObjectId('5be1690731a5c256ad574fb1'),
+                _id:mongoose.Types.ObjectId("5be1690731a5c256ad574fb1"),
                 senderMethod: "FedEx",
                 sendersName: "Yin Wu Jiu Ge",
                 senderPhoneNumber: "798668668",
@@ -33,7 +33,7 @@ describe("Senders", function () {
                 sendDate: "2018-3-20"
             },
             {
-                _id:mongoose.Types.ObjectId('5be1690731a5c256ad574fb2'),
+                _id:mongoose.Types.ObjectId("5be1690731a5c256ad574fb2"),
                 senderMethod: "EMS",
                 sendersName: "Bao Jie",
                 senderPhoneNumber: "110",
@@ -42,7 +42,7 @@ describe("Senders", function () {
                 sentDate: "2018-9-12"
             },
             {
-                _id:mongoose.Types.ObjectId('5be1690731a5c256ad574fb3'),
+                _id:mongoose.Types.ObjectId("5be1690731a5c256ad574fb3"),
                 senderMethod: "TNT ",
                 sendersName: "Hellen",
                 senderPhoneNumber: "11012121",
@@ -51,7 +51,7 @@ describe("Senders", function () {
                 sendDate: "2018-7-5"
             },
             {
-                _id:mongoose.Types.ObjectId('5be1690731a5c256ad574fb4'),
+                _id:mongoose.Types.ObjectId("5be1690731a5c256ad574fb4"),
                 senderMethod: "UPS",
                 sendersName: "Yan Liu",
                 senderPhoneNumber: "15261820009",
@@ -114,7 +114,7 @@ describe("Senders", function () {
     describe("POST /senders", function () {
         it("should return confirmation message", function (done) {
             let sender = {
-                _id:mongoose.Types.ObjectId('5be1690731a5c256ad574fb6'),
+                _id:mongoose.Types.ObjectId("5be1690731a5c256ad574fb6"),
                 sendersName: "testName",
                 senderMethod:"EMS",
                 senderPhoneNumber: "test12334",
