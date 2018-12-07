@@ -17,7 +17,7 @@ describe("FuzzySearch", function () {
                     let result = _.map(res.body, (fuzzyResult) => {
                         return {_id: fuzzyResult._id};
                     });
-                    expect(result).to.include({_id: 10001});
+                    expect(result).to.include({_id: "5be1690731a5c256ad574fb0"});
                     done();
                 });
         });

@@ -1,6 +1,5 @@
 let mongoose = require("mongoose");
 let ReceiverSchema = new mongoose.Schema({
-    _id:Number,
     receiverName: String,
     receiverPhoneNumber: String,
     receiverCountry:String,

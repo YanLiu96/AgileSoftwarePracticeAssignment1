@@ -15,7 +15,7 @@ describe("Receiver", function () {
         //add the test case to test
         receiver.insertMany([
             {
-                _id: 10001,
+                _id:mongoose.Types.ObjectId('5be1690731a5c256ad574fb0'),
                 receiverName: "ads",
                 receiverPhoneNumber: "11111111",
                 receiverCountry: "French",
@@ -23,7 +23,7 @@ describe("Receiver", function () {
                 postcode: "X78 DADA"
             },
             {
-                _id: 10002,
+                _id:mongoose.Types.ObjectId('5be1690731a5c256ad574fb1'),
                 receiverName: "woshinidie",
                 receiverPhoneNumber: "2222222",
                 receiverCountry: "Chnia",
@@ -31,7 +31,7 @@ describe("Receiver", function () {
                 postcode: "SDA 1111"
             },
             {
-                _id: 10003,
+                _id:mongoose.Types.ObjectId('5be1690731a5c256ad574fb2'),
                 receiverName: "shabi",
                 receiverPhoneNumber: "33333333",
                 receiverCountry: "South Korea",
@@ -39,7 +39,7 @@ describe("Receiver", function () {
                 postcode: "3231323"
             },
             {
-                _id: 10004,
+                _id:mongoose.Types.ObjectId('5be1690731a5c256ad574fb3'),
                 receiverName: "Xu Yue",
                 receiverPhoneNumber: "6666666",
                 receiverCountry: "Norway",
@@ -47,7 +47,7 @@ describe("Receiver", function () {
                 postcode: "FSDFFS"
             },
             {
-                _id: 10005,
+                _id:mongoose.Types.ObjectId('5be1690731a5c256ad574fb4'),
                 receiverName: "David",
                 receiverPhoneNumber: "434234235",
                 receiverCountry: "Ireland",
@@ -67,13 +67,13 @@ describe("Receiver", function () {
                     expect(res).to.have.status(200);
                     expect(res.body.length).to.equal(5);
                     let result = _.map(res.body, (receiver) => {
-                        return {_id: receiver._id,receiverName:receiver.receiverName};
+                        return {receiverName:receiver.receiverName};
                     });
-                    expect(result).to.include({_id: 10001,receiverName:"ads"});
-                    expect(result).to.include({_id: 10002,receiverName:"woshinidie"});
-                    expect(result).to.include({_id: 10003,receiverName:"shabi"});
-                    expect(result).to.include({_id: 10004,receiverName:"Xu Yue"});
-                    expect(result).to.include({_id: 10005,receiverName:"David"});
+                    expect(result).to.include({receiverName:"ads"});
+                    expect(result).to.include({receiverName:"woshinidie"});
+                    expect(result).to.include({receiverName:"shabi"});
+                    expect(result).to.include({receiverName:"Xu Yue"});
+                    expect(result).to.include({receiverName:"David"});
                     done();
                 });
         });
@@ -81,22 +81,22 @@ describe("Receiver", function () {
     });
 
     describe("GET /receivers/:id", () => {
-        it("should return sender which id is test_id:10001", function (done) {
+        it("should return sender which id is test_id:5be1690731a5c256ad574fb0", function (done) {
             chai.request(server)
-                .get("/receivers/10001")
+                .get("/receivers/5be1690731a5c256ad574fb0")
                 .end((err, res) => {
                     expect(res).to.have.status(200);
                     expect(res.body.length).to.equal(1);
                     let result = _.map(res.body, (receiver) => {
                         return {_id: receiver._id,receiverName:receiver.receiverName};
                     });
-                    expect(result).to.include({_id: 10001,receiverName:"ads"});
+                    expect(result).to.include({_id: "5be1690731a5c256ad574fb0",receiverName:"ads"});
                     done();
                 });
         });
         it("should return receiver not found when ID not existence", function (done) {
             chai.request(server)
-                .get("/receivers/555")
+                .get("/receivers/5be1690731a5c256ad574fb9")
                 .end((err, res) => {
                     expect(res).to.have.status(200);
                     expect(res.body.length).to.equal(undefined);
@@ -108,7 +108,7 @@ describe("Receiver", function () {
     describe("POST /receivers", ()=> {
         it("should return confirmation message that receiver add successfully", function (done) {
             let receiver = {
-                _id: "131313",
+                _id: "5be1690731a5c256ad574fb8",
                 receiverName: "tsetReceiverName",
                 receiverPhoneNumber: "test43535",
                 receiverCountry:"testCountry",
@@ -132,20 +132,7 @@ describe("Receiver", function () {
                         return { _id: receiver._id,receiverName:receiver.receiverName};
                     }  );
                     expect(res.body.length).to.equal(6);
-                    expect(result).to.include({_id: 131313,receiverName:"tsetReceiverName"});
-                    done();
-                });
-        });
-    });
-    describe("POST /receivers", function () {
-        it("should return error message when the receivers not add to the database", function (done) {
-            let receiver = {};
-            chai.request(server)
-                .post("/receivers")
-                .send(receiver)
-                .end(function (err, res) {
-                    expect(res).to.have.status(200);
-                    expect(res.body).to.have.property("message").equal("receiver NOT Added!");
+                    expect(result).to.include({_id: "5be1690731a5c256ad574fb8",receiverName:"tsetReceiverName"});
                     done();
                 });
         });
@@ -154,7 +141,7 @@ describe("Receiver", function () {
     describe("PUT /receivers/:id/changePhoneNumber/:phoneNumber", () => {
         it("should change th receiver phone number to 11223344", function (done) {
             chai.request(server)
-                .put("/receivers/10005/changePhoneNumber/11223344")
+                .put("/receivers/5be1690731a5c256ad574fb4/changePhoneNumber/11223344")
                 .end(function (err, res) {
                     expect(res).to.have.status(200);
                     let receiver = res.body.data;
@@ -174,7 +161,7 @@ describe("Receiver", function () {
     describe("PUT /receivers/:id/changeAddress/:address", () => {
         it("should change th receiver address  to testaddress", function (done) {
             chai.request(server)
-                .put("/receivers/10001/changeAddress/testaddress")
+                .put("/receivers/5be1690731a5c256ad574fb0/changeAddress/testaddress")
                 .end(function (err, res) {
                     expect(res).to.have.status(200);
                     let receiver = res.body.data;
@@ -195,7 +182,7 @@ describe("Receiver", function () {
     describe("DELETE /receivers/:id",()=>{
         it("should return delete confirmation message ", function(done) {
             chai.request(server)
-                .delete("/receivers/10005")
+                .delete("/receivers/5be1690731a5c256ad574fb4")
                 .end(function(err, res) {
                     expect(res).to.have.status(200);
                     expect(res.body).to.have.property("message").equal("Receiver Successfully Deleted!" );
@@ -210,7 +197,7 @@ describe("Receiver", function () {
                         return { _id: receiver._id,receiverName:receiver.receiverName};
                     }  );
                     expect(res.body.length).to.equal(4);
-                    expect(result).to.not.include({_id: 10005,receiverName:"David"});
+                    expect(result).to.not.include({_id: "5be1690731a5c256ad574fb4",receiverName:"David"});
                     done();
                 });
         });
