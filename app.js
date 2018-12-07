@@ -10,7 +10,6 @@ var usersRouter = require("./routes/users");
 const goods = require("./routes/goods");
 const senders = require("./routes/senders");
 const receivers = require("./routes/receivers");
-const details = require("./routes/details");
 const fuzzySearch = require("./routes/fuzzySearch");
 var app = express();
 
@@ -51,8 +50,6 @@ app.delete("/receivers/:id",receivers.deleteReceiver);
 app.put("/receivers/:id/changePhoneNumber/:phoneNumber",receivers.changeReceiverPhoneNumber);
 app.put("/receivers/:id/changeAddress/:address",receivers.changeReceiverAddress);
 
-app.get("/details",details.findDetails);
-app.get("/details/:id",details.findDetailsByID);
 
 app.get("/fuzzySearch/:keyword",fuzzySearch.FuzzySearchGoodOrSenderOrReceiverName);
 
