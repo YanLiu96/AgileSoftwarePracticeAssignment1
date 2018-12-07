@@ -5,11 +5,11 @@ node_js:
 script:
 - npm run coverage
 after_success:
--npm run public-coverage
+- npm run publish-coverage
 branches:
-  only: development
+   only: development
 notifications:
-    email:
+   email:
       recipients:
       - 278899085@qq.com
       on_success: never
