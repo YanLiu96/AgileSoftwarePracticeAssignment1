@@ -12,7 +12,7 @@
     "build": "babel ./ --out-dir lib/ --ignore ./node_modules,./.babelrc,./package.json,./package-lock.json,./test --copy-files",
     "test": "cross-env NODE_ENV=test mocha --compilers js:babel-core/register test/routes/*.js",
     "coverage": "cross-env NODE_ENV=test PORT=4000 nyc mocha test/routes/*.js",
-    "publish-coverage": "nyc report --reporter=text-lcov | coveralls",
+    "publish-coverage": "npm run coveragereport -- --report lcovonly && cat ./coverage/lcov.info | coveralls",
     "test:watch": "npm run test -- --watch",
     "clean": "rimraf ./lib && mkdir lib",
     "server:watch": "cross-env NODE_ENV=dev nodemon --exec babel-node bin/www"
