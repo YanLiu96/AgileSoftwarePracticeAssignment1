@@ -12,6 +12,7 @@
     "build": "babel ./ --out-dir lib/ --ignore ./node_modules,./.babelrc,./package.json,./package-lock.json,./test --copy-files",
     "test": "cross-env NODE_ENV=test mocha --compilers js:babel-core/register test/routes/*.js",
     "coverage": "npx istanbul cover _mocha -- test/routes/*.js",
+    "publish-coverage": "nyc report --reporter=text-lcov | coveralls",
     "test:watch": "npm run test -- --watch",
     "clean": "rimraf ./lib && mkdir lib",
     "server:watch": "cross-env NODE_ENV=dev nodemon --exec babel-node bin/www"
@@ -36,6 +37,7 @@
     "chai": "^3.5.0",
     "chai-http": "^2.0.1",
     "chai-things": "^0.2.0",
+    "coveralls": "^2.13.1",
     "cross-env": "^5.2.0",
     "eslint": "^4.15.0",
     "eslint-plugin-json": "^1.3.2",
