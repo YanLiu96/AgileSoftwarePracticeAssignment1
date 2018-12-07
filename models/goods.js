@@ -1,15 +1,12 @@
 let mongoose = require("mongoose");
 let GoodSchema = new mongoose.Schema({
-    _id:Number,
     goodsName: String,
     goodsKind:String,
     freight:Number,
-    deliveryman: {
-        deliverymanName:String,
-        phoneNumber:String,
-    },
+    deliveryman:String,
+    deliverymanUpvotes:{type: Number, default: 0},
     goodsLocation: String
-},{versionKey:false},{unique:false},
+},{versionKey:false},
 { collection: "goods" });
-GoodSchema.set("autoIndex", false);
+
 module.exports = mongoose.model("goods", GoodSchema);
