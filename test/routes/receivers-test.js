@@ -15,7 +15,7 @@ describe("Receiver", function () {
         //add the test case to test
         receiver.insertMany([
             {
-                _id:mongoose.Types.ObjectId('5be1690731a5c256ad574fb0'),
+                _id:mongoose.Types.ObjectId("5be1690731a5c256ad574fb0"),
                 receiverName: "ads",
                 receiverPhoneNumber: "11111111",
                 receiverCountry: "French",
@@ -23,7 +23,7 @@ describe("Receiver", function () {
                 postcode: "X78 DADA"
             },
             {
-                _id:mongoose.Types.ObjectId('5be1690731a5c256ad574fb1'),
+                _id:mongoose.Types.ObjectId("5be1690731a5c256ad574fb1"),
                 receiverName: "woshinidie",
                 receiverPhoneNumber: "2222222",
                 receiverCountry: "Chnia",
@@ -31,7 +31,7 @@ describe("Receiver", function () {
                 postcode: "SDA 1111"
             },
             {
-                _id:mongoose.Types.ObjectId('5be1690731a5c256ad574fb2'),
+                _id:mongoose.Types.ObjectId("5be1690731a5c256ad574fb2"),
                 receiverName: "shabi",
                 receiverPhoneNumber: "33333333",
                 receiverCountry: "South Korea",
@@ -39,7 +39,7 @@ describe("Receiver", function () {
                 postcode: "3231323"
             },
             {
-                _id:mongoose.Types.ObjectId('5be1690731a5c256ad574fb3'),
+                _id:mongoose.Types.ObjectId("5be1690731a5c256ad574fb3"),
                 receiverName: "Xu Yue",
                 receiverPhoneNumber: "6666666",
                 receiverCountry: "Norway",
@@ -47,7 +47,7 @@ describe("Receiver", function () {
                 postcode: "FSDFFS"
             },
             {
-                _id:mongoose.Types.ObjectId('5be1690731a5c256ad574fb4'),
+                _id:mongoose.Types.ObjectId("5be1690731a5c256ad574fb4"),
                 receiverName: "David",
                 receiverPhoneNumber: "434234235",
                 receiverCountry: "Ireland",
