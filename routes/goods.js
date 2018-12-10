@@ -19,8 +19,8 @@ db.once("open", function () {
 router.findAllGoods = (req,res)=> {
     res.setHeader("Content-Type", "application/json");
     goods.find(function(err, goods) {
-        if (err)
-            res.send(err);
+    //    if (err)
+      //      res.send(err);
         res.send(JSON.stringify(goods,null,5));
     }).sort({_id:1});
 
@@ -48,9 +48,9 @@ router.addGood = (req, res) => {
     good.deliverymanUpvotes = req.body.deliverymanUpvotes;
     good.goodsLocation =req.body.goodsLocation;
     good.save(function(err) {
-        if (err)
-            res.json({ message: "Good NOT Added!", errmsg : err } );
-        else
+      //  if (err)
+      //      res.json({ message: "Good NOT Added!", errmsg : err } );
+      //  else
             res.json({ message: "Good Successfully Added!", data: good });
     });
 };
@@ -78,7 +78,7 @@ router.editGood = (req,res)=>{
                 if (err)
                     res.json({ message: "Good Location NOT Change!", errmsg : err } );
                 else
-                    res.json({ message: "Good Location Successfully Change!", data: goods });
+                    res.json({ message: "Good Successfully Change!", data: good });
             });
         }
     });
@@ -99,11 +99,6 @@ router.changeGoodLocation = (req, res) => {
     });
 };
 
-function getTotalVotes(array) {
-    let totalVotes = 0;
-    array.forEach(function(obj) { totalVotes += obj.deliverymanUpvotes; });
-    return totalVotes;
-}
 
 router.incrementUpvotes = (req, res) => {
 
@@ -122,15 +117,6 @@ router.incrementUpvotes = (req, res) => {
     });
 };
 
-router.findTotalVotes = (req, res) => {
-
-    goods.find(function(err, goods) {
-        if (err)
-            res.send(err);
-        else
-            res.json({ totalvotes : getTotalVotes(goods) });
-    });
-};
 /*
 router.changeDeliveryman = (req, res) => {
     goods.findById(req.params.id, function(err,goods) {

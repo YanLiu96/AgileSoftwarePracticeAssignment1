@@ -88,7 +88,6 @@ describe("Goods", function () {
 
 
     describe("GET /goods/:id", () => {
-
         it("should return good which goodsname is iphone X", function (done) {
             chai.request(server)
                 .get("/goods/5be1690731a5c256ad574fb0")
@@ -149,7 +148,29 @@ describe("Goods", function () {
         });
     });
 
+    describe("Put /goods/:id/voteForDeliveryman",()=>{
+        it("should add the number of votes by 1", function (done) {
+            chai.request(server)
+                .put("/goods/5be1690731a5c256ad574fb0/voteForDeliveryman")
+                .end(function (err, res) {
+                    expect(res).to.have.status(200);
+                    expect(res.body).to.have.property('message').equal('Deliveryman Successfully Upvoted!' );
+                    done();
+                });
+        });
+        after(function(done) {
+            chai.request(server)
+                .get("/goods/5be1690731a5c256ad574fb0")
+                .end(function(err, res) {
+                    let result = _.map(res.body, (good) => {
+                        return { deliverymanUpvotes: good.deliverymanUpvotes};
+                    }  );
+                    expect(result).to.include({deliverymanUpvotes: 1});
+                    done();
+                });
+        });
 
+    });
 
     describe("PUT /goods/:id/changeLocation/:location", () => {
         it("should change th good location to testLocation", function (done) {
@@ -173,6 +194,30 @@ describe("Goods", function () {
 
     });
 
+    describe('PUT /goods/:id/', () => {
+        it('should return a change successfully message and change in database', function(done) {
+            let good = {
+                goodsName: "PutName",
+                goodsKind: "PutKind",
+                freight:12,
+                deliveryman:"PutD",
+                deliverymanUpvotes:1,
+                goodsLocation: "putlocation",
+            };
+            chai.request(server)
+                .put('/goods/5be1690731a5c256ad574fb0')
+                .send(good)
+                .end(function(err, res) {
+                    expect(res).to.have.status(200);
+                    expect(res.body).to.have.property('message').equal('Good Successfully Change!' );
+                    let result = _.map(res.body, (good) => {
+                        return { goodsName: good.goodsName};
+                    }  );
+                    expect(result).to.include({goodsName: "PutName"});
+                    done();
+                });
+        });
+    });
 
     describe("DELETE /goods/:id",()=>{
         it("should return delete confirmation message and database changes ", function(done) {
@@ -181,6 +226,7 @@ describe("Goods", function () {
                 .end(function(err, res) {
                     expect(res).to.have.status(200);
                     expect(res.body).to.have.property("message").equal("Good Successfully Deleted!" );
+
                     done();
                 });
         });
